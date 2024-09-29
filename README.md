@@ -2,11 +2,9 @@
 
 This is an attempt to study how the Exploration by Empowerment Heuristic can be used to characterize the dynamic space of Inventions. 
 
-Follow-up from the [Empowerment contributes to exploration behaviour in a creative video game](https://www.nature.com/articles/s41562-023-01661-2) paper by Brändle et al.
+* Follow-up from the [Empowerment contributes to exploration behaviour in a creative video game](https://www.nature.com/articles/s41562-023-01661-2) paper by Brändle et al.
 
-And trying to update the research gaps found in the [Not by Transmission Alone](https://royalsocietypublishing.org/doi/epdf/10.1098/rstb.2020.0049) paper  by Perry et al. 
-
-## First follow the instructions to install the "fastText" package
+* And trying to update the research gaps found in the [Not by Transmission Alone](https://royalsocietypublishing.org/doi/epdf/10.1098/rstb.2020.0049) paper  by Perry et al. 
 
 ## Install from Source
 
