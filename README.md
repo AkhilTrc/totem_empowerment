@@ -6,9 +6,9 @@ This is an attempt to study how the Exploration by Empowerment Heuristic can be 
 
 * And trying to update the research gaps found in the [Not by Transmission Alone](https://royalsocietypublishing.org/doi/epdf/10.1098/rstb.2020.0049) paper  by Perry et al. 
 
-## Install from Source
+## Installing fastText package from Source
 
-If the pip installation fails, try installing from the source:
+If direct pip installation fails, try installing from the source:
 
    ```bash
    > git clone https://github.com/facebookresearch/fastText.git
