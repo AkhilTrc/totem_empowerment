@@ -18,7 +18,7 @@ If the pip installation fails, try installing from the source:
    > pip setup.py install
    ```
 
-## If you encounter a "Microsoft Visual C++ 14.0 or greater is required" error:
+## If you encounter a "Microsoft Visual C++ 14.0 or greater is required" error
 
 1. Download and install Microsoft C++ Build Tools from:
    [Visual Studio C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
@@ -33,6 +33,12 @@ If you're still experiencing issues, try using a pre-built wheel:
 
 ```bash
 > pip install fasttext-wheel
+```
+
+## If needed to clone the "fastText" submodule respository
+
+```bash
+> git clone --recursive https://github.com/facebookresearch/fastText
 ```
 
 ## Additional Resources

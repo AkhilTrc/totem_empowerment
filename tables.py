@@ -118,8 +118,8 @@ class Tables():
                         (1) first (element index)
                         (2) second (element index) 
                         (3) result (element index or NaN)
-            version (str, optional): 'joined', 'alchemy1', 'alchemy2', 'tinyalchemy' or 'tinypixels'. 
-                        States what element and combination set is going to be used. Defaults to 'alchemy2'.
+            version (str, optional): 'totem_game'. 
+                        States what element and combination set is going to be used. 
 
         Returns:
             DataFrame: DataFrame consisting of 4 columns: 

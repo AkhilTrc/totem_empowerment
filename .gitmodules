@@ -1,0 +1,3 @@
+[submodule "totem_empowerment/fastText"]
+	path = totem_empowerment/fastText
+	url = https://github.com/facebookresearch/fastText.git
