@@ -5,6 +5,11 @@ import data_handle as data_handle
 import pandas as pd
 
 
+"""
+Modify all parts of code containing 'first' and 'second' to include for 3 element combinations. 
+
+"""
+
 class Tables():
     """Class functions generate Totem game tables.
     """
@@ -141,7 +146,7 @@ class Tables():
                 table_success.append({'first': combination[0], 'second': combination[1], 'success': 0})
         table_success = pd.DataFrame(table_success)        
         table_expanded = pd.merge(table_results, table_success, how='outer', on=['first', 'second'])
-        table_expanded = table_expanded[['first', 'second', 'success', 'result']]
+        table_expanded = table_expanded[['first', 'second', 'success', 'result']]       
                 
         # return expanded table
         return table_expanded 
