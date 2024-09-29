@@ -10,3 +10,5 @@
 - pip install fasttext-wheel
 
 This should solve all problems and no more errors should show up. 
+
+
