@@ -1,0 +1,12 @@
+# If running into issues with 'fasttext' installment. Run the following:
+
+- git clone https://github.com/facebookresearch/fastText.git
+- cd fastText
+- python3 setup.py install
+ 
+# If running into Microsoft C++ Build Tools Error, install it from this link- https://visualstudio.microsoft.com/visual-cpp-build-tools/ 
+
+# Run again. If still running into the issue, try this:
+- pip install fasttext-wheel
+
+This should solve all problems and no more errors should show up. 
