@@ -25,8 +25,8 @@ class Gametrees():
             parents = key.split(',')
             results = value
             elements.update(parents, results)
-        elements.difference_update({'water', 'fire', 'earth', 'air'})
-        elements = ['water', 'fire', 'earth', 'air'] + list(elements)
+        elements.difference_update({'water', 'fire', 'earth', 'air'})       # Change names.
+        elements = ['water', 'fire', 'earth', 'air'] + list(elements)       # Change names.
 
         # initialize game tree
         gametree = dict()
