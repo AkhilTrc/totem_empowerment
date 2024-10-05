@@ -7,7 +7,7 @@ class Gametrees():
         """Initializes game tree class.
         """
 
-    def get_alchemy1_gametree(self):
+    def get_totem_gametree(self):
         """Gets game tree of Little Alchemy 1.
         """
         # print info for user
