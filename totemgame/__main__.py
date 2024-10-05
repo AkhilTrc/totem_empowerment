@@ -1,5 +1,5 @@
 from empowerment import Empowerment
-from similarity import Similarity
+from totemgame.similarity import Similarity
 from gametrees import Gametrees
 from tables import Tables
 from vectors import Vectors
