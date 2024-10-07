@@ -17,10 +17,10 @@ class Gametrees():
         with open('data\\elements.json', encoding='utf8') as infile:
             old_gametree = json.load(infile)
 
-        # initialize element storage for alchemy 1 elements
+        # initialize element storage for Totem game elements
         elements = set()
 
-        # get all elements from little alchemy 1
+        # get all elements from Totem game
         for key, value in old_gametree.items():
             parents = key.split(',')
             parents = [p.strip() for p in parents]

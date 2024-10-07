@@ -17,7 +17,7 @@ class Tables():
         """Initializes table class.
         """
         
-    def get_tables(self, table_type='combination', version='alchemy2', expand=False):
+    def get_tables(self, table_type='combination', version='totem_game', expand=False):
         """Returns table depending on the type. Can either be combination, parent or child table.
 
         Args:
@@ -58,21 +58,24 @@ class Tables():
                     if parent[1] not in table:
                         table[parent[1]] = {}
 
-                    if parent[1] not in table[parent[0]]:           # It then checks if the second parent is in the first parent's dictionary. If not, it creates a list with the resulting element.
-                        table[parent[0]][parent[1]] = [element]
-                    elif element not in table[parent[0]][parent[1]]:        # If already there, it appends to existing list. 
-                        table[parent[0]][parent[1]].append(element)
+                    if parent[2] not in table:
+                        table[parent[2]] = {}
+"""
+                    if parent[1] not in table[parent[0]] and parent[1] not in table[parent[2]]:           # It then checks if the second parent is in the first parent's dictionary. If not, it creates a list with the resulting element.
+                        table[parent[0]][parent[1]][parent[2]] = [element]
+                    elif element not in table[parent[0]][parent[1]][parent[2]]:        # If already there, it appends to existing list. 
+                        table[parent[0]][parent[1]][parent[2]].append(element)
 
                     if parent[0] not in table[parent[1]]:           # The above thing in reverse. 
                         table[parent[1]][parent[0]] = [element]
                     elif element not in table[parent[1]][parent[0]]:
                         table[parent[1]][parent[0]].append(element)
                     
-                    table_csv.append({'first': parent[0], 'second': parent[1], 'result': element})
-
+                    table_csv.append({'first': parent[0], 'second': parent[1], 'third': parent[2], 'result': element})
+"""
                 elif table_type == 'parent':
                     # add resulting element to parent list for each combination element
-                    if parent[0] not in table: 
+                    if parent[0] not in table:
                         table[parent[0]] = {element}        # Creates a new set to add the element.
                     else:
                         table[parent[0]].update([element])      # Updates the new element to the already existing set of elements. 
@@ -80,6 +83,10 @@ class Tables():
                         table[parent[1]] = {element}
                     else:
                         table[parent[1]].update([element])
+                    if parent[2] not in table:
+                        table[parent[2]] = {element}
+                    else:
+                        table[parent[2]].update([element])
                 
                 elif table_type == 'child':             # Same thing as above but updates the 'elements' column of the table instead. 
                     # add parents to child list for resulting element
@@ -110,43 +117,45 @@ class Tables():
         # write to csv file
         table_csv.to_csv('data/{}{}Table.csv'.format(version, table_type.capitalize()), index=False, float_format='%.f')
 
-    def expand_combination_table(self, table_results, version='alchemy2'):
+    def expand_combination_table(self, table_results, version='totem'):
         """Expands table to include all element combinations, whether successful or not.
 
         Args:
-            table_results (DataFrame): DataFrame consisting of 3 columns: 
+            table_results (DataFrame): DataFrame consisting of 4 columns: 
                         (1) first (element index)
                         (2) second (element index) 
-                        (3) result (element index or NaN)
-            version (str, optional): 'totem_game'. 
+                        (3) third (element index) 
+                        (4) result (element index or NaN)
+            version (str, optional): 'totem'. 
                         States what element and combination set is going to be used. 
 
         Returns:
-            DataFrame: DataFrame consisting of 4 columns: 
+            DataFrame: DataFrame consisting of 5 columns: 
                         (1) first (element index)
                         (2) second (element index) 
-                        (3) success (0 or 1)
-                        (4) result (element index or NaN)
+                        (3) third (element index) 
+                        (4) success (0 or 1)
+                        (5) result (element index or NaN)
         """
         # get umber of elements
-        if version == 'totem_game':
-            n_elements = 149        # Make sure of this!
+        if version == 'totem':
+            n_elements = 136        # Make sure of this!
             
         # transform first two entries in table to list
-        parents_results = table_results[['first', 'second']].values.tolist()
+        parents_results = table_results[['first', 'second', 'third']].values.tolist()
 
         # get result for each inventory combination
         table_success = list()
-        combinations = combinations_with_replacement(range(n_elements),2)
+        combinations = combinations_with_replacement(range(n_elements), 2)
         for c in combinations:
             combination = sorted(c)
             if combination in parents_results:
-                table_success.append({'first': combination[0], 'second': combination[1], 'success': 1})
+                table_success.append({'first': combination[0], 'second': combination[1], 'third': combination[2], 'success': 1})
             else:
-                table_success.append({'first': combination[0], 'second': combination[1], 'success': 0})
+                table_success.append({'first': combination[0], 'second': combination[1], 'third': combination[2], 'success': 0})
         table_success = pd.DataFrame(table_success)        
-        table_expanded = pd.merge(table_results, table_success, how='outer', on=['first', 'second'])
-        table_expanded = table_expanded[['first', 'second', 'success', 'result']]       
+        table_expanded = pd.merge(table_results, table_success, how='outer', on=['first', 'second', 'third'])
+        table_expanded = table_expanded[['first', 'second', 'third', 'success', 'result']]       
                 
         # return expanded table
         return table_expanded 
