@@ -5,7 +5,7 @@ import numpy as np
 
 
 class Vectors():
-    """Class function generates Little Alchemy word vectors.
+    """Class function generates Totem word vectors.
     """
     def __init__(self):
         """Initializes vector class.
@@ -15,7 +15,7 @@ class Vectors():
         """Loads and stores fastText wordvectors of elements.
 
         Args:
-            game_version (str): 'totem_game'. 
+            game_version (str): 'totem'. 
                         States what element and combination set is going to be used. 
             vector_version (str): 'ccen', 'crawl' or 'wiki'. 
                         States what element vectors the empowerment info should be based on. 

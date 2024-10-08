@@ -34,7 +34,7 @@ def get_elements(version='totem'):
         list: Elements of the given version.
     """
     if version == 'totem':
-        with open('data/{}Elements.json'.format(version),
+        with open('data//gametrees//{}Elements.json'.format(version),
                   encoding='utf8') as infile:
             elements = json.load(infile)
     else:
