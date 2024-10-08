@@ -1,7 +1,7 @@
 import json
 
 class Gametrees():
-    """Class functions generate Little Alchemy game trees.
+    """Class functions generate Totem game trees.
     """
     def __init__(self):
         """Initializes game tree class.
@@ -34,8 +34,6 @@ class Gametrees():
         gametree = dict()
         for element_id, element in enumerate(elements):
             gametree[element_id] = {'name': element, 'parents': []}
-
-        print(gametree.items())
 
         # fill game tree
         for key, value in old_gametree.items():

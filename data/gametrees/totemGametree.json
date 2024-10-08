@@ -24,760 +24,1375 @@
         "parents": []
     },
     "6": {
-        "name": "R_BG_Log_Top_Tr_Bt_Sq_R",
+        "name": "R_BG_Log_Top_Sq_Bt_Tr",
         "parents": [
             [
-                8,
-                56
-            ],
-            [
-                56,
-                78,
-                97
+                86,
+                125
             ]
         ]
     },
     "7": {
-        "name": "BG_Log_Top_Rd_Bt_Sq",
+        "name": "B_BG_Log_Top_Tr_Bt_Sq",
         "parents": [
             [
-                106,
-                122
+                18,
+                46
             ]
         ]
     },
     "8": {
-        "name": "BG_Log_Top_Tr_Bt_Sq_R",
+        "name": "Bark",
         "parents": [
             [
-                56,
-                97,
-                103
+                0
             ]
         ]
     },
     "9": {
-        "name": "Quarter_Log",
+        "name": "BG_Log_Top_Sq",
         "parents": [
             [
-                13,
-                108
+                78,
+                81
             ]
         ]
     },
     "10": {
-        "name": "S_Log_Sq_R",
+        "name": "BG_Log_Top_Tr_Bt_Sq_B",
         "parents": [
             [
-                30,
-                56,
-                97
+                18,
+                46,
+                75
             ]
         ]
     },
     "11": {
-        "name": "B_BG_Log_Top_Rd_Bt_Sq",
+        "name": "S_Log_Rd_R",
         "parents": [
             [
-                7,
-                61
+                29,
+                75,
+                125
             ]
         ]
     },
     "12": {
-        "name": "Big_Log",
+        "name": "BG_Log_Top_Rd_Bt_Sq_R",
         "parents": [
             [
-                0,
-                13
+                52,
+                75,
+                125
             ]
         ]
     },
     "13": {
-        "name": "Axe",
+        "name": "R_S_Log_Sq",
         "parents": [
             [
-                89,
-                91,
-                106
+                58,
+                125
             ]
         ]
     },
     "14": {
-        "name": "R_BG_Log_Top_Rd_Bt_Tr_B",
+        "name": "B_S_Log_Rd_R",
         "parents": [
             [
-                36,
-                56
+                11,
+                46
             ],
             [
-                61,
-                81,
-                97
+                75,
+                121,
+                125
             ]
         ]
     },
     "15": {
-        "name": "BG_Log_Top_Tr_Bt_Tr",
+        "name": "BG_Log_Top_Sq_Bt_Sq",
         "parents": [
             [
-                76,
-                90
+                9,
+                81
             ]
         ]
     },
     "16": {
-        "name": "B_BG_Log_Top_Rd_Bt_Sq_R",
+        "name": "R_BG_Log_Top_Rd_Bt_Rd_B",
         "parents": [
             [
-                48,
-                61
+                41,
+                125
             ],
             [
-                11,
-                56,
-                97
+                46,
+                75,
+                84
             ]
         ]
     },
     "17": {
-        "name": "S_Log_Rd",
+        "name": "Twine",
         "parents": [
             [
-                132,
-                135
+                61
             ]
         ]
     },
     "18": {
-        "name": "S_Log_Tr",
+        "name": "BG_Log_Top_Tr_Bt_Sq",
         "parents": [
             [
-                90,
-                135
+                55,
+                81
             ]
         ]
     },
     "19": {
-        "name": "B_BG_Log_Top_Sq_Bt_Tr_R",
+        "name": "B_S_Log_Tr",
         "parents": [
             [
-                35,
-                61
-            ],
-            [
-                51,
-                56,
-                97
+                46,
+                107
             ]
         ]
     },
     "20": {
-        "name": "BG_Log_Top_Rd_Bt_Rd_R",
+        "name": "R_BG_Log_Top_Tr_Bt_Rd",
         "parents": [
             [
-                56,
-                77,
-                97
+                25,
+                125
             ]
         ]
     },
     "21": {
-        "name": "R_BG_Log_Top_Sq_Bt_Sq",
+        "name": "R_BG_Log_Top_Tr_Bt_Tr",
         "parents": [
             [
-                47,
-                56
+                82,
+                125
             ]
         ]
     },
     "22": {
-        "name": "B_BG_Log_Top_Sq_Bt_Rd_B",
+        "name": "S_Log_Tr_B",
         "parents": [
             [
-                38,
-                61
-            ],
-            [
-                34,
-                61,
-                97
+                46,
+                75,
+                107
             ]
         ]
     },
     "23": {
-        "name": "R_BG_Log_Top_Rd_Bt_Sq",
+        "name": "B_BG_Log_Top_Tr_Bt_Sq_B",
         "parents": [
             [
+                10,
+                46
+            ],
+            [
                 7,
-                56
+                46,
+                75
             ]
         ]
     },
     "24": {
-        "name": "B_S_Log_Rd_B",
+        "name": "R_BG_Log_Top_Sq_Bt_Sq_R",
         "parents": [
             [
-                61,
-                98
+                70,
+                125
             ],
             [
-                61,
-                62,
-                97
+                75,
+                100,
+                125
             ]
         ]
     },
     "25": {
-        "name": "R_S_Log_Tr_R",
+        "name": "BG_Log_Top_Tr_Bt_Rd",
         "parents": [
             [
-                56,
-                66
-            ],
-            [
-                37,
-                56,
-                97
+                49,
+                55
             ]
         ]
     },
     "26": {
-        "name": "R_BG_Log_Top_Sq_Bt_Tr",
+        "name": "B_BG_Log_Top_Tr_Bt_Tr_R",
         "parents": [
             [
-                56,
-                59
+                46,
+                56
+            ],
+            [
+                75,
+                89,
+                125
             ]
         ]
     },
     "27": {
-        "name": "B_S_Log_Rd_R",
+        "name": "BG_Log_Top_Tr_Bt_Rd_B",
         "parents": [
             [
-                61,
+                25,
+                46,
                 75
-            ],
-            [
-                56,
-                62,
-                97
             ]
         ]
     },
     "28": {
-        "name": "B_BG_Log_Top_Tr_Bt_Tr_B",
+        "name": "B_BG_Log_Top_Rd_Bt_Sq",
         "parents": [
             [
-                49,
-                61
-            ],
-            [
-                45,
-                61,
-                97
+                46,
+                52
             ]
         ]
     },
     "29": {
-        "name": "BG_Log_Top_Sq",
+        "name": "S_Log_Rd",
         "parents": [
             [
-                106,
-                124
+                49,
+                127
             ]
         ]
     },
     "30": {
-        "name": "S_Log_Sq",
+        "name": "BG_Log_Top_Rd_Bt_Tr_R",
         "parents": [
             [
+                75,
                 106,
-                135
+                125
             ]
         ]
     },
     "31": {
-        "name": "B_BG_Log_Top_Rd_Bt_Tr",
+        "name": "B_BG_Log_Top_Rd_Bt_Tr_R",
         "parents": [
             [
-                61,
-                67
+                30,
+                46
+            ],
+            [
+                75,
+                79,
+                125
             ]
         ]
     },
     "32": {
-        "name": "B_BG_Log_Top_Sq_Bt_Sq_R",
+        "name": "B_BG_Log_Top_Rd_Bt_Sq_B",
         "parents": [
             [
-                61,
-                117
+                46,
+                87
             ],
             [
-                56,
-                97,
-                109
+                28,
+                46,
+                75
             ]
         ]
     },
     "33": {
-        "name": "BG_Log_Top_Sq_Bt_Tr_B",
+        "name": "R_BG_Log_Top_Rd_Bt_Tr",
         "parents": [
             [
-                59,
-                61,
-                97
+                106,
+                125
             ]
         ]
     },
     "34": {
-        "name": "B_BG_Log_Top_Sq_Bt_Rd",
+        "name": "R_BG_Log_Top_Tr_Bt_Tr_B",
         "parents": [
             [
-                61,
-                83
+                72,
+                125
+            ],
+            [
+                21,
+                46,
+                75
             ]
         ]
     },
     "35": {
-        "name": "BG_Log_Top_Sq_Bt_Tr_R",
+        "name": "B_S_Log_Sq_R",
         "parents": [
             [
-                56,
-                59,
-                97
+                46,
+                94
+            ],
+            [
+                42,
+                75,
+                125
             ]
         ]
     },
     "36": {
-        "name": "BG_Log_Top_Rd_Bt_Tr_B",
+        "name": "R_BG_Log_Top_Sq_Bt_Rd",
         "parents": [
             [
-                61,
-                67,
-                97
+                115,
+                125
             ]
         ]
     },
     "37": {
-        "name": "R_S_Log_Tr",
+        "name": "S_Log_Rd_B",
         "parents": [
             [
-                18,
-                56
+                29,
+                46,
+                75
             ]
         ]
     },
     "38": {
-        "name": "BG_Log_Top_Sq_Bt_Rd_B",
+        "name": "B_BG_Log_Top_Tr_Bt_Tr_B",
         "parents": [
             [
-                61,
-                83,
-                97
+                46,
+                72
+            ],
+            [
+                46,
+                75,
+                89
             ]
         ]
     },
     "39": {
-        "name": "R_BG_Log_Top_Tr_Bt_Rd_R",
+        "name": "R_S_Log_Tr",
         "parents": [
             [
-                56,
-                133
-            ],
-            [
-                56,
-                97,
-                112
+                107,
+                125
             ]
         ]
     },
     "40": {
-        "name": "R_BG_Log_Top_Sq_Bt_Rd_B",
+        "name": "R_BG_Log_Top_Sq_Bt_Tr_R",
         "parents": [
             [
-                38,
-                56
+                67,
+                125
             ],
             [
-                50,
-                61,
-                97
+                6,
+                75,
+                125
             ]
         ]
     },
     "41": {
-        "name": "R_BG_Log_Top_Sq_Bt_Rd_R",
+        "name": "BG_Log_Top_Rd_Bt_Rd_B",
         "parents": [
             [
-                56,
-                92
-            ],
-            [
-                50,
-                56,
-                97
+                46,
+                75,
+                126
             ]
         ]
     },
     "42": {
-        "name": "Fiber",
+        "name": "B_S_Log_Sq",
         "parents": [
             [
-                106,
-                116
+                46,
+                58
             ]
         ]
     },
     "43": {
-        "name": "R_S_Log_Rd_B",
+        "name": "R_BG_Log_Top_Rd_Bt_Sq_R",
         "parents": [
             [
-                56,
-                98
+                12,
+                125
             ],
             [
-                61,
-                95,
-                97
+                69,
+                75,
+                125
             ]
         ]
     },
     "44": {
-        "name": "B_S_Log_Tr_R",
+        "name": "B_BG_Log_Top_Sq_Bt_Tr",
         "parents": [
             [
-                61,
-                66
-            ],
-            [
-                56,
-                96,
-                97
+                46,
+                86
             ]
         ]
     },
     "45": {
-        "name": "B_BG_Log_Top_Tr_Bt_Tr",
+        "name": "B_S_Log_Rd_B",
         "parents": [
             [
-                15,
-                61
+                37,
+                46
+            ],
+            [
+                46,
+                75,
+                121
             ]
         ]
     },
     "46": {
-        "name": "B_BG_Log_Top_Tr_Bt_Rd_R",
-        "parents": [
-            [
-                61,
-                133
-            ],
-            [
-                56,
-                85,
-                97
-            ]
-        ]
-    },
-    "47": {
-        "name": "BG_Log_Top_Sq_Bt_Sq",
-        "parents": [
-            [
-                29,
-                106
-            ]
-        ]
-    },
-    "48": {
-        "name": "BG_Log_Top_Rd_Bt_Sq_R",
-        "parents": [
-            [
-                7,
-                56,
-                97
-            ]
-        ]
-    },
-    "49": {
-        "name": "BG_Log_Top_Tr_Bt_Tr_B",
-        "parents": [
-            [
-                15,
-                61,
-                97
-            ]
-        ]
-    },
-    "50": {
-        "name": "R_BG_Log_Top_Sq_Bt_Rd",
-        "parents": [
-            [
-                56,
-                83
-            ]
-        ]
-    },
-    "51": {
-        "name": "B_BG_Log_Top_Sq_Bt_Tr",
-        "parents": [
-            [
-                59,
-                61
-            ]
-        ]
-    },
-    "52": {
-        "name": "R_S_Log_Sq_R",
-        "parents": [
-            [
-                10,
-                56
-            ],
-            [
-                56,
-                97,
-                105
-            ]
-        ]
-    },
-    "53": {
-        "name": "R_BG_Log_Top_Rd_Bt_Rd_B",
-        "parents": [
-            [
-                56,
-                57
-            ],
-            [
-                61,
-                97,
-                110
-            ]
-        ]
-    },
-    "54": {
-        "name": "B_BG_Log_Top_Tr_Bt_Tr_R",
-        "parents": [
-            [
-                61,
-                93
-            ],
-            [
-                45,
-                56,
-                97
-            ]
-        ]
-    },
-    "55": {
-        "name": "B_BG_Log_Top_Tr_Bt_Sq_B",
-        "parents": [
-            [
-                61,
-                130
-            ],
-            [
-                61,
-                94,
-                97
-            ]
-        ]
-    },
-    "56": {
-        "name": "Red_Paint",
-        "parents": [
-            [
-                3,
-                74,
-                127
-            ]
-        ]
-    },
-    "57": {
-        "name": "BG_Log_Top_Rd_Bt_Rd_B",
-        "parents": [
-            [
-                61,
-                77,
-                97
-            ]
-        ]
-    },
-    "58": {
-        "name": "B_S_Log_Sq_B",
-        "parents": [
-            [
-                61,
-                72
-            ],
-            [
-                61,
-                97,
-                114
-            ]
-        ]
-    },
-    "59": {
-        "name": "BG_Log_Top_Sq_Bt_Tr",
-        "parents": [
-            [
-                29,
-                90
-            ]
-        ]
-    },
-    "60": {
-        "name": "BG_Log_Top_Tr_Bt_Rd",
-        "parents": [
-            [
-                76,
-                132
-            ]
-        ]
-    },
-    "61": {
         "name": "Blue_Paint",
         "parents": [
             [
                 4,
-                74,
+                104,
+                131
+            ]
+        ]
+    },
+    "47": {
+        "name": "Stone_Tool4",
+        "parents": [
+            [
+                49,
+                131
+            ]
+        ]
+    },
+    "48": {
+        "name": "R_BG_Log_Top_Rd_Bt_Sq_B",
+        "parents": [
+            [
+                87,
+                125
+            ],
+            [
+                46,
+                69,
+                75
+            ]
+        ]
+    },
+    "49": {
+        "name": "Stone_Tool2",
+        "parents": [
+            [
+                81,
+                131
+            ]
+        ]
+    },
+    "50": {
+        "name": "B_BG_Log_Top_Sq_Bt_Tr_B",
+        "parents": [
+            [
+                46,
+                105
+            ],
+            [
+                44,
+                46,
+                75
+            ]
+        ]
+    },
+    "51": {
+        "name": "R_BG_Log_Top_Sq_Bt_Tr_B",
+        "parents": [
+            [
+                105,
+                125
+            ],
+            [
+                6,
+                46,
+                75
+            ]
+        ]
+    },
+    "52": {
+        "name": "BG_Log_Top_Rd_Bt_Sq",
+        "parents": [
+            [
+                81,
+                109
+            ]
+        ]
+    },
+    "53": {
+        "name": "R_S_Log_Rd_B",
+        "parents": [
+            [
+                37,
+                125
+            ],
+            [
+                46,
+                65,
+                75
+            ]
+        ]
+    },
+    "54": {
+        "name": "BG_Log_Top_Sq_Bt_Rd_R",
+        "parents": [
+            [
+                75,
+                115,
+                125
+            ]
+        ]
+    },
+    "55": {
+        "name": "BG_Log_Top_Tr",
+        "parents": [
+            [
+                47,
+                78
+            ]
+        ]
+    },
+    "56": {
+        "name": "BG_Log_Top_Tr_Bt_Tr_R",
+        "parents": [
+            [
+                75,
+                82,
+                125
+            ]
+        ]
+    },
+    "57": {
+        "name": "R_S_Log_Sq_R",
+        "parents": [
+            [
+                94,
+                125
+            ],
+            [
+                13,
+                75,
+                125
+            ]
+        ]
+    },
+    "58": {
+        "name": "S_Log_Sq",
+        "parents": [
+            [
+                81,
                 127
             ]
         ]
     },
-    "62": {
-        "name": "B_S_Log_Rd",
+    "59": {
+        "name": "R_S_Log_Tr_B",
         "parents": [
             [
-                17,
-                61
+                22,
+                125
+            ],
+            [
+                39,
+                46,
+                75
+            ]
+        ]
+    },
+    "60": {
+        "name": "BG_Log_Top_Sq_Bt_Rd_B",
+        "parents": [
+            [
+                46,
+                75,
+                115
+            ]
+        ]
+    },
+    "61": {
+        "name": "Fiber",
+        "parents": [
+            [
+                8,
+                81
+            ]
+        ]
+    },
+    "62": {
+        "name": "BG_Log_Top_Sq_Bt_Sq_B",
+        "parents": [
+            [
+                15,
+                46,
+                75
             ]
         ]
     },
     "63": {
-        "name": "R_BG_Log_Top_Tr_Bt_Rd_B",
+        "name": "R_BG_Log_Top_Tr_Bt_Tr_R",
         "parents": [
             [
                 56,
-                126
+                125
             ],
             [
-                61,
-                97,
-                112
+                21,
+                75,
+                125
             ]
         ]
     },
     "64": {
-        "name": "R_BG_Log_Top_Tr_Bt_Sq_B",
+        "name": "B_BG_Log_Top_Rd_Bt_Rd_R",
         "parents": [
             [
-                56,
-                130
+                46,
+                112
             ],
             [
-                61,
-                78,
-                97
+                75,
+                111,
+                125
             ]
         ]
     },
     "65": {
-        "name": "R_BG_Log_Top_Sq_Bt_Tr_B",
+        "name": "R_S_Log_Rd",
         "parents": [
             [
-                33,
-                56
-            ],
-            [
-                26,
-                61,
-                97
+                29,
+                125
             ]
         ]
     },
     "66": {
-        "name": "S_Log_Tr_R",
+        "name": "R_BG_Log_Top_Tr_Bt_Sq_B",
         "parents": [
             [
-                18,
-                56,
-                97
+                10,
+                125
+            ],
+            [
+                46,
+                74,
+                75
             ]
         ]
     },
     "67": {
-        "name": "BG_Log_Top_Rd_Bt_Tr",
+        "name": "BG_Log_Top_Sq_Bt_Tr_R",
         "parents": [
             [
-                90,
-                122
+                75,
+                86,
+                125
             ]
         ]
     },
     "68": {
-        "name": "S_Log_Tr_B",
+        "name": "R_S_Log_Rd_R",
         "parents": [
             [
-                18,
-                61,
-                97
+                11,
+                125
+            ],
+            [
+                65,
+                75,
+                125
             ]
         ]
     },
     "69": {
-        "name": "R_S_Log_Rd_R",
+        "name": "R_BG_Log_Top_Rd_Bt_Sq",
         "parents": [
             [
-                56,
-                75
-            ],
-            [
-                56,
-                95,
-                97
+                52,
+                125
             ]
         ]
     },
     "70": {
-        "name": "R_BG_Log_Top_Tr_Bt_Tr",
+        "name": "BG_Log_Top_Sq_Bt_Sq_R",
         "parents": [
             [
                 15,
-                56
+                75,
+                125
             ]
         ]
     },
     "71": {
-        "name": "BG_Log_Top_Rd_Bt_Tr_R",
+        "name": "B_BG_Log_Top_Sq_Bt_Rd",
         "parents": [
             [
-                56,
-                67,
-                97
+                46,
+                115
             ]
         ]
     },
     "72": {
-        "name": "S_Log_Sq_B",
+        "name": "BG_Log_Top_Tr_Bt_Tr_B",
         "parents": [
             [
-                30,
-                61,
-                97
+                46,
+                75,
+                82
             ]
         ]
     },
     "73": {
-        "name": "B_BG_Log_Top_Rd_Bt_Rd",
+        "name": "R_BG_Log_Top_Tr_Bt_Rd_B",
         "parents": [
             [
-                61,
-                77
+                27,
+                125
+            ],
+            [
+                20,
+                46,
+                75
             ]
         ]
     },
     "74": {
+        "name": "R_BG_Log_Top_Tr_Bt_Sq",
+        "parents": [
+            [
+                18,
+                125
+            ]
+        ]
+    },
+    "75": {
+        "name": "Brush",
+        "parents": [
+            [
+                17,
+                61,
+                116
+            ]
+        ]
+    },
+    "76": {
+        "name": "B_BG_Log_Top_Sq_Bt_Rd_R",
+        "parents": [
+            [
+                46,
+                54
+            ],
+            [
+                71,
+                75,
+                125
+            ]
+        ]
+    },
+    "77": {
+        "name": "B_S_Log_Tr_B",
+        "parents": [
+            [
+                22,
+                46
+            ],
+            [
+                19,
+                46,
+                75
+            ]
+        ]
+    },
+    "78": {
+        "name": "Big_Log_W_Bark",
+        "parents": [
+            [
+                81,
+                122
+            ]
+        ]
+    },
+    "79": {
+        "name": "B_BG_Log_Top_Rd_Bt_Tr",
+        "parents": [
+            [
+                46,
+                106
+            ]
+        ]
+    },
+    "80": {
+        "name": "B_BG_Log_Top_Tr_Bt_Sq_R",
+        "parents": [
+            [
+                46,
+                93
+            ],
+            [
+                7,
+                75,
+                125
+            ]
+        ]
+    },
+    "81": {
+        "name": "Stone_Tool1",
+        "parents": [
+            [
+                2
+            ]
+        ]
+    },
+    "82": {
+        "name": "BG_Log_Top_Tr_Bt_Tr",
+        "parents": [
+            [
+                47,
+                55
+            ]
+        ]
+    },
+    "83": {
+        "name": "B_BG_Log_Top_Tr_Bt_Rd_B",
+        "parents": [
+            [
+                27,
+                46
+            ],
+            [
+                46,
+                75,
+                96
+            ]
+        ]
+    },
+    "84": {
+        "name": "R_BG_Log_Top_Rd_Bt_Rd",
+        "parents": [
+            [
+                125,
+                126
+            ]
+        ]
+    },
+    "85": {
+        "name": "B_BG_Log_Top_Rd_Bt_Rd_B",
+        "parents": [
+            [
+                41,
+                46
+            ],
+            [
+                46,
+                75,
+                111
+            ]
+        ]
+    },
+    "86": {
+        "name": "BG_Log_Top_Sq_Bt_Tr",
+        "parents": [
+            [
+                9,
+                47
+            ]
+        ]
+    },
+    "87": {
+        "name": "BG_Log_Top_Rd_Bt_Sq_B",
+        "parents": [
+            [
+                46,
+                52,
+                75
+            ]
+        ]
+    },
+    "88": {
+        "name": "R_BG_Log_Top_Sq_Bt_Rd_B",
+        "parents": [
+            [
+                60,
+                125
+            ],
+            [
+                36,
+                46,
+                75
+            ]
+        ]
+    },
+    "89": {
+        "name": "B_BG_Log_Top_Tr_Bt_Tr",
+        "parents": [
+            [
+                46,
+                82
+            ]
+        ]
+    },
+    "90": {
+        "name": "B_BG_Log_Top_Sq_Bt_Sq_B",
+        "parents": [
+            [
+                46,
+                62
+            ],
+            [
+                46,
+                75,
+                108
+            ]
+        ]
+    },
+    "91": {
+        "name": "B_BG_Log_Top_Sq_Bt_Tr_R",
+        "parents": [
+            [
+                46,
+                67
+            ],
+            [
+                44,
+                75,
+                125
+            ]
+        ]
+    },
+    "92": {
+        "name": "B_BG_Log_Top_Sq_Bt_Rd_B",
+        "parents": [
+            [
+                46,
+                60
+            ],
+            [
+                46,
+                71,
+                75
+            ]
+        ]
+    },
+    "93": {
+        "name": "BG_Log_Top_Tr_Bt_Sq_R",
+        "parents": [
+            [
+                18,
+                75,
+                125
+            ]
+        ]
+    },
+    "94": {
+        "name": "S_Log_Sq_R",
+        "parents": [
+            [
+                58,
+                75,
+                125
+            ]
+        ]
+    },
+    "95": {
+        "name": "R_S_Log_Sq_B",
+        "parents": [
+            [
+                125,
+                130
+            ],
+            [
+                13,
+                46,
+                75
+            ]
+        ]
+    },
+    "96": {
+        "name": "B_BG_Log_Top_Tr_Bt_Rd",
+        "parents": [
+            [
+                25,
+                46
+            ]
+        ]
+    },
+    "97": {
+        "name": "B_BG_Log_Top_Sq_Bt_Sq_R",
+        "parents": [
+            [
+                46,
+                70
+            ],
+            [
+                75,
+                108,
+                125
+            ]
+        ]
+    },
+    "98": {
+        "name": "R_BG_Log_Top_Tr_Bt_Rd_R",
+        "parents": [
+            [
+                114,
+                125
+            ],
+            [
+                20,
+                75,
+                125
+            ]
+        ]
+    },
+    "99": {
+        "name": "S_Log_Tr_R",
+        "parents": [
+            [
+                75,
+                107,
+                125
+            ]
+        ]
+    },
+    "100": {
+        "name": "R_BG_Log_Top_Sq_Bt_Sq",
+        "parents": [
+            [
+                15,
+                125
+            ]
+        ]
+    },
+    "101": {
+        "name": "R_BG_Log_Top_Sq_Bt_Rd_R",
+        "parents": [
+            [
+                54,
+                125
+            ],
+            [
+                36,
+                75,
+                125
+            ]
+        ]
+    },
+    "102": {
+        "name": "R_BG_Log_Top_Rd_Bt_Tr_B",
+        "parents": [
+            [
+                113,
+                125
+            ],
+            [
+                33,
+                46,
+                75
+            ]
+        ]
+    },
+    "103": {
+        "name": "R_BG_Log_Top_Sq_Bt_Sq_B",
+        "parents": [
+            [
+                62,
+                125
+            ],
+            [
+                46,
+                75,
+                100
+            ]
+        ]
+    },
+    "104": {
+        "name": "Container",
+        "parents": [
+            [
+                49,
+                123
+            ]
+        ]
+    },
+    "105": {
+        "name": "BG_Log_Top_Sq_Bt_Tr_B",
+        "parents": [
+            [
+                46,
+                75,
+                86
+            ]
+        ]
+    },
+    "106": {
+        "name": "BG_Log_Top_Rd_Bt_Tr",
+        "parents": [
+            [
+                47,
+                109
+            ]
+        ]
+    },
+    "107": {
+        "name": "S_Log_Tr",
+        "parents": [
+            [
+                47,
+                127
+            ]
+        ]
+    },
+    "108": {
+        "name": "B_BG_Log_Top_Sq_Bt_Sq",
+        "parents": [
+            [
+                15,
+                46
+            ]
+        ]
+    },
+    "109": {
+        "name": "BG_Log_Top_Rd",
+        "parents": [
+            [
+                49,
+                78
+            ]
+        ]
+    },
+    "110": {
+        "name": "R_S_Log_Tr_R",
+        "parents": [
+            [
+                99,
+                125
+            ],
+            [
+                39,
+                75,
+                125
+            ]
+        ]
+    },
+    "111": {
+        "name": "B_BG_Log_Top_Rd_Bt_Rd",
+        "parents": [
+            [
+                46,
+                126
+            ]
+        ]
+    },
+    "112": {
+        "name": "BG_Log_Top_Rd_Bt_Rd_R",
+        "parents": [
+            [
+                75,
+                125,
+                126
+            ]
+        ]
+    },
+    "113": {
+        "name": "BG_Log_Top_Rd_Bt_Tr_B",
+        "parents": [
+            [
+                46,
+                75,
+                106
+            ]
+        ]
+    },
+    "114": {
+        "name": "BG_Log_Top_Tr_Bt_Rd_R",
+        "parents": [
+            [
+                25,
+                75,
+                125
+            ]
+        ]
+    },
+    "115": {
+        "name": "BG_Log_Top_Sq_Bt_Rd",
+        "parents": [
+            [
+                9,
+                49
+            ]
+        ]
+    },
+    "116": {
+        "name": "Small_Stick",
+        "parents": [
+            [
+                47,
+                118
+            ]
+        ]
+    },
+    "117": {
+        "name": "R_BG_Log_Top_Rd_Bt_Tr_R",
+        "parents": [
+            [
+                30,
+                125
+            ],
+            [
+                33,
+                75,
+                125
+            ]
+        ]
+    },
+    "118": {
+        "name": "Stick",
+        "parents": [
+            [
+                1
+            ]
+        ]
+    },
+    "119": {
+        "name": "Axe",
+        "parents": [
+            [
+                17,
+                81,
+                118
+            ]
+        ]
+    },
+    "120": {
+        "name": "R_BG_Log_Top_Rd_Bt_Rd_R",
+        "parents": [
+            [
+                112,
+                125
+            ],
+            [
+                75,
+                84,
+                125
+            ]
+        ]
+    },
+    "121": {
+        "name": "B_S_Log_Rd",
+        "parents": [
+            [
+                29,
+                46
+            ]
+        ]
+    },
+    "122": {
+        "name": "Big_Log",
+        "parents": [
+            [
+                0,
+                119
+            ]
+        ]
+    },
+    "123": {
+        "name": "Quarter_Log",
+        "parents": [
+            [
+                119,
+                124
+            ]
+        ]
+    },
+    "124": {
+        "name": "Log",
+        "parents": [
+            [
+                1,
+                119
+            ]
+        ]
+    },
+    "125": {
+        "name": "Red_Paint",
+        "parents": [
+            [
+                3,
+                104,
+                131
+            ]
+        ]
+    },
+    "126": {
+        "name": "BG_Log_Top_Rd_Bt_Rd",
+        "parents": [
+            [
+                49,
+                109
+            ]
+        ]
+    },
+    "127": {
+        "name": "Log_W_Bark",
+        "parents": [
+            [
+                81,
+                124
+            ]
+        ]
+    },
+    "128": {
+        "name": "B_BG_Log_Top_Rd_Bt_Tr_B",
+        "parents": [
+            [
+                46,
+                113
+            ],
+            [
+                46,
+                75,
+                79
+            ]
+        ]
+    },
+    "129": {
+        "name": "B_BG_Log_Top_Tr_Bt_Rd_R",
+        "parents": [
+            [
+                46,
+                114
+            ],
+            [
+                75,
+                96,
+                125
+            ]
+        ]
+    },
+    "130": {
+        "name": "S_Log_Sq_B",
+        "parents": [
+            [
+                46,
+                58,
+                75
+            ]
+        ]
+    },
+    "131": {
         "name": "Antler_Refined",
         "parents": [
             [
@@ -786,674 +1401,59 @@
             ]
         ]
     },
-    "75": {
-        "name": "S_Log_Rd_R",
-        "parents": [
-            [
-                17,
-                56,
-                97
-            ]
-        ]
-    },
-    "76": {
-        "name": "BG_Log_Top_Tr",
-        "parents": [
-            [
-                90,
-                124
-            ]
-        ]
-    },
-    "77": {
-        "name": "BG_Log_Top_Rd_Bt_Rd",
-        "parents": [
-            [
-                122,
-                132
-            ]
-        ]
-    },
-    "78": {
-        "name": "R_BG_Log_Top_Tr_Bt_Sq",
-        "parents": [
-            [
-                56,
-                103
-            ]
-        ]
-    },
-    "79": {
-        "name": "R_BG_Log_Top_Rd_Bt_Rd_R",
-        "parents": [
-            [
-                20,
-                56
-            ],
-            [
-                56,
-                97,
-                110
-            ]
-        ]
-    },
-    "80": {
-        "name": "B_BG_Log_Top_Tr_Bt_Rd_B",
-        "parents": [
-            [
-                61,
-                126
-            ],
-            [
-                61,
-                85,
-                97
-            ]
-        ]
-    },
-    "81": {
-        "name": "R_BG_Log_Top_Rd_Bt_Tr",
-        "parents": [
-            [
-                56,
-                67
-            ]
-        ]
-    },
-    "82": {
-        "name": "B_S_Log_Sq_R",
-        "parents": [
-            [
-                10,
-                61
-            ],
-            [
-                56,
-                97,
-                114
-            ]
-        ]
-    },
-    "83": {
-        "name": "BG_Log_Top_Sq_Bt_Rd",
-        "parents": [
-            [
-                29,
-                132
-            ]
-        ]
-    },
-    "84": {
-        "name": "B_S_Log_Tr_B",
-        "parents": [
-            [
-                61,
-                68
-            ],
-            [
-                61,
-                96,
-                97
-            ]
-        ]
-    },
-    "85": {
-        "name": "B_BG_Log_Top_Tr_Bt_Rd",
-        "parents": [
-            [
-                60,
-                61
-            ]
-        ]
-    },
-    "86": {
-        "name": "B_BG_Log_Top_Tr_Bt_Sq_R",
-        "parents": [
-            [
-                8,
-                61
-            ],
-            [
-                56,
-                94,
-                97
-            ]
-        ]
-    },
-    "87": {
-        "name": "B_BG_Log_Top_Rd_Bt_Tr_B",
-        "parents": [
-            [
-                36,
-                61
-            ],
-            [
-                31,
-                61,
-                97
-            ]
-        ]
-    },
-    "88": {
-        "name": "R_BG_Log_Top_Tr_Bt_Tr_B",
-        "parents": [
-            [
-                49,
-                56
-            ],
-            [
-                61,
-                70,
-                97
-            ]
-        ]
-    },
-    "89": {
-        "name": "Stick",
-        "parents": [
-            [
-                1
-            ]
-        ]
-    },
-    "90": {
-        "name": "Stone_Tool4",
-        "parents": [
-            [
-                74,
-                132
-            ]
-        ]
-    },
-    "91": {
-        "name": "Twine",
-        "parents": [
-            [
-                42
-            ]
-        ]
-    },
-    "92": {
-        "name": "BG_Log_Top_Sq_Bt_Rd_R",
-        "parents": [
-            [
-                56,
-                83,
-                97
-            ]
-        ]
-    },
-    "93": {
-        "name": "BG_Log_Top_Tr_Bt_Tr_R",
-        "parents": [
-            [
-                15,
-                56,
-                97
-            ]
-        ]
-    },
-    "94": {
-        "name": "B_BG_Log_Top_Tr_Bt_Sq",
-        "parents": [
-            [
-                61,
-                103
-            ]
-        ]
-    },
-    "95": {
-        "name": "R_S_Log_Rd",
-        "parents": [
-            [
-                17,
-                56
-            ]
-        ]
-    },
-    "96": {
-        "name": "B_S_Log_Tr",
-        "parents": [
-            [
-                18,
-                61
-            ]
-        ]
-    },
-    "97": {
-        "name": "Brush",
-        "parents": [
-            [
-                42,
-                91,
-                99
-            ]
-        ]
-    },
-    "98": {
-        "name": "S_Log_Rd_B",
-        "parents": [
-            [
-                17,
-                61,
-                97
-            ]
-        ]
-    },
-    "99": {
-        "name": "Small_Stick",
-        "parents": [
-            [
-                89,
-                90
-            ]
-        ]
-    },
-    "100": {
-        "name": "B_BG_Log_Top_Rd_Bt_Rd_B",
-        "parents": [
-            [
-                57,
-                61
-            ],
-            [
-                61,
-                73,
-                97
-            ]
-        ]
-    },
-    "101": {
-        "name": "R_S_Log_Sq_B",
-        "parents": [
-            [
-                56,
-                72
-            ],
-            [
-                61,
-                97,
-                105
-            ]
-        ]
-    },
-    "102": {
-        "name": "B_BG_Log_Top_Rd_Bt_Rd_R",
-        "parents": [
-            [
-                20,
-                61
-            ],
-            [
-                56,
-                73,
-                97
-            ]
-        ]
-    },
-    "103": {
-        "name": "BG_Log_Top_Tr_Bt_Sq",
-        "parents": [
-            [
-                76,
-                106
-            ]
-        ]
-    },
-    "104": {
-        "name": "B_BG_Log_Top_Sq_Bt_Rd_R",
-        "parents": [
-            [
-                61,
-                92
-            ],
-            [
-                34,
-                56,
-                97
-            ]
-        ]
-    },
-    "105": {
-        "name": "R_S_Log_Sq",
-        "parents": [
-            [
-                30,
-                56
-            ]
-        ]
-    },
-    "106": {
-        "name": "Stone_Tool1",
-        "parents": [
-            [
-                2
-            ]
-        ]
-    },
-    "107": {
-        "name": "B_BG_Log_Top_Sq_Bt_Tr_B",
-        "parents": [
-            [
-                33,
-                61
-            ],
-            [
-                51,
-                61,
-                97
-            ]
-        ]
-    },
-    "108": {
-        "name": "Log",
-        "parents": [
-            [
-                1,
-                13
-            ]
-        ]
-    },
-    "109": {
-        "name": "B_BG_Log_Top_Sq_Bt_Sq",
-        "parents": [
-            [
-                47,
-                61
-            ]
-        ]
-    },
-    "110": {
-        "name": "R_BG_Log_Top_Rd_Bt_Rd",
-        "parents": [
-            [
-                56,
-                77
-            ]
-        ]
-    },
-    "111": {
-        "name": "R_BG_Log_Top_Sq_Bt_Sq_B",
-        "parents": [
-            [
-                56,
-                123
-            ],
-            [
-                21,
-                61,
-                97
-            ]
-        ]
-    },
-    "112": {
-        "name": "R_BG_Log_Top_Tr_Bt_Rd",
-        "parents": [
-            [
-                56,
-                60
-            ]
-        ]
-    },
-    "113": {
-        "name": "R_BG_Log_Top_Rd_Bt_Sq_B",
-        "parents": [
-            [
-                56,
-                134
-            ],
-            [
-                23,
-                61,
-                97
-            ]
-        ]
-    },
-    "114": {
-        "name": "B_S_Log_Sq",
-        "parents": [
-            [
-                30,
-                61
-            ]
-        ]
-    },
-    "115": {
-        "name": "R_BG_Log_Top_Tr_Bt_Tr_R",
-        "parents": [
-            [
-                56,
-                93
-            ],
-            [
-                56,
-                70,
-                97
-            ]
-        ]
-    },
-    "116": {
-        "name": "Bark",
-        "parents": [
-            [
-                0
-            ]
-        ]
-    },
-    "117": {
-        "name": "BG_Log_Top_Sq_Bt_Sq_R",
-        "parents": [
-            [
-                47,
-                56,
-                97
-            ]
-        ]
-    },
-    "118": {
-        "name": "R_BG_Log_Top_Rd_Bt_Sq_R",
-        "parents": [
-            [
-                48,
-                56
-            ],
-            [
-                23,
-                56,
-                97
-            ]
-        ]
-    },
-    "119": {
-        "name": "B_BG_Log_Top_Rd_Bt_Tr_R",
-        "parents": [
-            [
-                61,
-                71
-            ],
-            [
-                31,
-                56,
-                97
-            ]
-        ]
-    },
-    "120": {
-        "name": "R_BG_Log_Top_Rd_Bt_Tr_R",
-        "parents": [
-            [
-                56,
-                71
-            ],
-            [
-                56,
-                81,
-                97
-            ]
-        ]
-    },
-    "121": {
-        "name": "R_BG_Log_Top_Sq_Bt_Tr_R",
-        "parents": [
-            [
-                35,
-                56
-            ],
-            [
-                26,
-                56,
-                97
-            ]
-        ]
-    },
-    "122": {
-        "name": "BG_Log_Top_Rd",
-        "parents": [
-            [
-                124,
-                132
-            ]
-        ]
-    },
-    "123": {
-        "name": "BG_Log_Top_Sq_Bt_Sq_B",
-        "parents": [
-            [
-                47,
-                61,
-                97
-            ]
-        ]
-    },
-    "124": {
-        "name": "Big_Log_W_Bark",
-        "parents": [
-            [
-                12,
-                106
-            ]
-        ]
-    },
-    "125": {
-        "name": "R_S_Log_Tr_B",
-        "parents": [
-            [
-                56,
-                68
-            ],
-            [
-                37,
-                61,
-                97
-            ]
-        ]
-    },
-    "126": {
-        "name": "BG_Log_Top_Tr_Bt_Rd_B",
-        "parents": [
-            [
-                60,
-                61,
-                97
-            ]
-        ]
-    },
-    "127": {
-        "name": "Container",
-        "parents": [
-            [
-                9,
-                132
-            ]
-        ]
-    },
-    "128": {
-        "name": "R_BG_Log_Top_Sq_Bt_Sq_R",
-        "parents": [
-            [
-                56,
-                117
-            ],
-            [
-                21,
-                56,
-                97
-            ]
-        ]
-    },
-    "129": {
-        "name": "B_BG_Log_Top_Sq_Bt_Sq_B",
-        "parents": [
-            [
-                61,
-                123
-            ],
-            [
-                61,
-                97,
-                109
-            ]
-        ]
-    },
-    "130": {
-        "name": "BG_Log_Top_Tr_Bt_Sq_B",
-        "parents": [
-            [
-                61,
-                97,
-                103
-            ]
-        ]
-    },
-    "131": {
-        "name": "B_BG_Log_Top_Rd_Bt_Sq_B",
-        "parents": [
-            [
-                61,
-                134
-            ],
-            [
-                11,
-                61,
-                97
-            ]
-        ]
-    },
     "132": {
-        "name": "Stone_Tool2",
+        "name": "R_BG_Log_Top_Tr_Bt_Sq_R",
         "parents": [
             [
+                93,
+                125
+            ],
+            [
                 74,
-                106
+                75,
+                125
             ]
         ]
     },
     "133": {
-        "name": "BG_Log_Top_Tr_Bt_Rd_R",
+        "name": "B_S_Log_Sq_B",
         "parents": [
             [
-                56,
-                60,
-                97
+                46,
+                130
+            ],
+            [
+                42,
+                46,
+                75
             ]
         ]
     },
     "134": {
-        "name": "BG_Log_Top_Rd_Bt_Sq_B",
+        "name": "B_S_Log_Tr_R",
         "parents": [
             [
-                7,
-                61,
-                97
+                46,
+                99
+            ],
+            [
+                19,
+                75,
+                125
             ]
         ]
     },
     "135": {
-        "name": "Log_W_Bark",
+        "name": "B_BG_Log_Top_Rd_Bt_Sq_R",
         "parents": [
             [
-                106,
-                108
+                12,
+                46
+            ],
+            [
+                28,
+                75,
+                125
             ]
         ]
     }

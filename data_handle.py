@@ -14,7 +14,7 @@ def get_gametree(version='totem'):
         dict: Game tree information of the given version.
     """
     if version == 'totem':
-        with open('data/{}Gametree.json'.format(version),
+        with open('data\\gametrees\\{}Gametree.json'.format(version),
                   encoding='utf8') as infile:
             gametree = json.load(infile)
             gametree = {int(k):v for k,v in gametree.items()}
