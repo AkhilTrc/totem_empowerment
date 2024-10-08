@@ -6,8 +6,8 @@ from cross_validation import CrossValidation
 
 if __name__ == '__main__':
     # YOUR ACTION IS REQUIRED HERE: SET APPROPRIATE VARIABLES
-    # set game version: 'totem_game'
-    game_version = 'totem_game'
+    # set game version: 'totem'
+    game_version = 'totem'
 
     # set vector version: split on 'data' or 'element', use vector version 'ccen', 'wiki or 'crawl' and dimension 100 or 300 (check what is available)
     split_version = 'data'
@@ -100,7 +100,7 @@ if __name__ == '__main__':
     print(gametree_table)
 
     #add column 'predResult'
-    if game_version == 'totem_game':
+    if game_version == 'totem':
         elements = 149
 
     if model_version == 'element':

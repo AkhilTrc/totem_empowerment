@@ -15,7 +15,7 @@ from sklearn.model_selection import KFold
 
 
 class CrossValidation():
-    def __init__(self, k, time, game_version='totem_game',
+    def __init__(self, k, time, game_version='totem',
                  prediction_model=0, epochs=1, batch_size=32, steps_per_epoch=None,
                  exclude_elements_test=True, exclude_elements_val=True, manual_validation=None,
                  oversampling=None, custom_class_weight=None,
@@ -25,7 +25,7 @@ class CrossValidation():
         Args:
             k (int): Number of splits (= k).
             time (str): Timestamp. This will be used for logs.
-            game_version (str, optional): 'totem_game'.
+            game_version (str, optional): 'totem'.
                         States what element and combination set is going to be used.
             prediction_model (float, optional): States for what model the data is generate,
                         0 = link prediction model, 1 = element prediction model, 2 = empowerment prediction model.
@@ -65,7 +65,7 @@ class CrossValidation():
         # set info on game version
         self.game_version = game_version
 
-        if game_version == 'create_totem':    # My Modification
+        if game_version == 'totem':    # My Modification
             self.n_elements = 136
 
         # set info on model

@@ -49,7 +49,7 @@ def create_empowermenttable_file(game_version='alchemy2', split_version='data', 
     """Creates file for later result logging of empowerment table.
 
     Args:
-        game_version (str, optional): 'totem_game'. States what element and combination set the table should be based on.
+        game_version (str, optional): 'totem'. States what element and combination set the table should be based on.
         split_version (str, optional): 'data' or 'element'. States what cross validation split the table should be based on.
                     Defaults to 'data'.
         vector_version (str, optional): 'ccen100', 'ccen300', 'crawl100', 'crawl300', 'wiki100' or 'wiki300'.
@@ -71,7 +71,7 @@ def append_gametreetable_file(*data, time=None, prediction_model=0, first_line=F
                     True = link prediction model, False = element prediction model.
                     Defaults to True.
         first_line (bool, optional): Indicates whether first line of file is written. Defaults to False.
-        game_version (str, optional): 'totem_game'. States what element and combination set the table should be based on.
+        game_version (str, optional): 'totem'. States what element and combination set the table should be based on.
         split_version (str, optional): 'data' or 'element'. States what cross validation split the table should be based on.
                     Defaults to 'data'.
         vector_version (str, optional): 'ccen100', 'ccen300', 'crawl100', 'crawl300', 'wiki100' or 'wiki300'.
@@ -100,7 +100,7 @@ def append_gametreetable_file(*data, time=None, prediction_model=0, first_line=F
                 writer = csv.writer(outfile)
                 writer.writerow(line)
 
-def append_empowermenttable_file(*data, first_line=False, game_version='totem_game', split_version='data', vector_version='crawl300'):
+def append_empowermenttable_file(*data, first_line=False, game_version='totem', split_version='data', vector_version='crawl300'):
     """Writes test results to csv file continuously.
 
     Args:
@@ -108,7 +108,7 @@ def append_empowermenttable_file(*data, first_line=False, game_version='totem_ga
                     where each row consists of elements involved in combination, true success and true results
                     and predicted success probability or element probabilities.
         first_line (Boolean, optional): Indicates whether first line of file is written. Defaults to False.
-        game_version (str, optional): 'totem_game'. States what element and combination set the table should be based on.
+        game_version (str, optional): 'totem'. States what element and combination set the table should be based on.
                     Defaults to 'alchemy2'.
         split_version (str, optional): 'data' or 'element'. States what cross validation split the table should be based on.
                     Defaults to 'data'.
@@ -132,7 +132,7 @@ def log_model_info(model_info, mode, mode_type, time):
     """Log info on model to file.
 
     Args:
-        model_info (LittleAlchemyModel, HumanModel or CrossValidation): Model that is to be logged.
+        model_info (TotemModel, HumanModel or CrossValidation): Model that is to be logged.
         mode (int): 1 = model, 2 = human, 3 = gametree
         mode_type (str): States for what model the data is logged.
                     (1) mode 1 - 'base', 'bin', 'emp', 'truebin', 'trueemp', 'sim', 'cbv' or 'cbu'
@@ -145,7 +145,7 @@ def log_model_info(model_info, mode, mode_type, time):
     elif mode == 2:
         filename = 'gametree/data/human/{}/{}ModelInfo.txt'.format(time, mode_type)
         model_info.data = {}
-    elif mode ==3:
+    elif mode == 3:
         filename = 'gametree/data/gametree/{}/{}ModelInfo.txt'.format(time, mode_type)    # = '/2387532/tinyalchemyLinkPredModelInfo.txt' for this example. 
 
     # convert object information to dictionary
@@ -158,7 +158,7 @@ def store_inventory(game_version, inventory, time, model_type, memory, empowerme
     """Writes inventory sizes for each temperature, run and step to mat file.
 
     Args:
-        game_version (str): 'totem_game'. States what element and combination set the table should be based on.
+        game_version (str): 'totem'. States what element and combination set the table should be based on.
         inventory: (Inventory): Inventory info.
         time (str): Timestamp.
         model_type (str): Model type.
@@ -193,7 +193,7 @@ def store_utility(utilities, time, game_version, data_source, model_type, memory
     Args:
         utilities (DataFrame): Player utility values.
         time (str): Timestamp.
-        game_version (str): 'totem_game'.
+        game_version (str): 'totem'.
                     States what game version the data is based on.
         data_source (str, optional): States what kind of model is going to be used as data source:
                     'human', 'base', 'bin', 'emp', 'truebin', 'trueemp', 'sim', 'cbu', 'cbv'.
