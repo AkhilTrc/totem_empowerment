@@ -66,7 +66,7 @@ class CrossValidation():
         self.game_version = game_version
 
         if game_version == 'create_totem':    # My Modification
-            self.n_elements = 149
+            self.n_elements = 136
 
         # set info on model
         self.prediction_model = prediction_model    
@@ -101,7 +101,7 @@ class CrossValidation():
 
         #if self.prediction_model == 0:
         if self.prediction_model != 1:
-            data_table = data_table.drop_duplicates(subset=['first', 'second'])     # change this to include 3 combinable elements.
+            data_table = data_table.drop_duplicates(subset=['first', 'second', 'third'])     # change this to include 3 combinable elements.
 
         # initialize storage for results
         result_metrics = list()

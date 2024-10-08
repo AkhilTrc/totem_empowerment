@@ -13,7 +13,7 @@ class Empowerment():
         """Initializes empowerment class.
         
         Args:
-            game_version (str): 'totem_game'. 
+            game_version (str): 'totem'. 
                         States what element and combination set is going to be used.
             split_version (str, optional): 'data' or 'element'. States what cross validation split the empowerment info should be based on. 
                         Defaults to 'data'.
@@ -45,10 +45,10 @@ class Empowerment():
         """Plots empowerment value distribution.
         """
         # get number of elements
-        if self.game_version == 'totem_game':
-            n_elements = 149    # Make sure of this!
+        if self.game_version == 'totem':
+            n_elements = 136    # Make sure of this!
         else:
-            raise ValueError('Undefined version: "{}". Use "totem_game" instead.'.format(self.game_version))
+            raise ValueError('Undefined version: "{}". Use "totem" instead.'.format(self.game_version))
 
         # set figure size
         plt.figure(figsize=(12,5))

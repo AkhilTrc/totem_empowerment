@@ -1,4 +1,4 @@
-# from totemgame.empowerment import Empowerment
+from totemgame.empowerment import Empowerment
 from totemgame.similarity import Similarity
 from totemgame.gametrees import Gametrees
 from totemgame.tables import Tables
@@ -17,11 +17,10 @@ if __name__ == '__main__':
 
     vector = Vectors()
     vector.get_wordvectors('totem', 'crawl', 300)
-    """
+    
     
     Similarity('totem', 'crawl300')
-    
     """
+    
     Empowerment('totem', 'data', 'crawl300')
     # YOUR ACTION IS NOT RECQUIRED ANYMORE
-    """

@@ -8,7 +8,7 @@ import numpy as np
 if __name__ == '__main__':
     # IMPORTANT INFORMATION: YOU MAY NEED TO RELOCATE DESIRED PROBABILITY TABLE FROM empowermentexploration.data.gametree BEFOREHAND
     # YOUR ACTION IS REQUIRED HERE
-    game_version = 'totem_game'
+    game_version = 'totem'
 
     # set vector version: split on 'data' or 'element', use vector version 'ccen', 'wiki or 'crawl' and dimension 100 or 300 (check what is available)
     split_version = 'data'
@@ -22,8 +22,8 @@ if __name__ == '__main__':
     print('\nGet custom global empowerment info for game version {}.'.format(game_version))
 
     # get combinations
-    if game_version == 'totem_game':
-        n_elements = 149
+    if game_version == 'totem':
+        n_elements = 136
 
     # get probability table
     probability_table = data_handle.get_probability_table(game_version, split_version, vector_version)

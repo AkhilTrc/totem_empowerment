@@ -15,7 +15,7 @@ def create_directory(directory_name):
     """
     os.makedirs(os.path.dirname(directory_name), exist_ok=True)
 
-def create_gametreetable_file(time=None, prediction_model=0, n_elements=None, game_version='totem_game', split_version='data', vector_version='crawl300'):
+def create_gametreetable_file(time=None, prediction_model=0, n_elements=None, game_version='totem', split_version='data', vector_version='crawl300'):
     """Creates file for later result logging depending on model type (link or element prediction model).
 
     Args:
@@ -25,7 +25,7 @@ def create_gametreetable_file(time=None, prediction_model=0, n_elements=None, ga
                     Defaults to True.
         n_elements (int, optional): Number of elements used in the game. Is only of interest if link_prediction is False.
                     Defaults to None.
-        game_version (str, optional): 'totem_game'. States what element and combination set the table should be based on.
+        game_version (str, optional): 'totem'. States what element and combination set the table should be based on.
         split_version (str, optional): 'data' or 'element'. States what cross validation split the table should be based on.
                     Defaults to 'data'.
         vector_version (str, optional): 'ccen100', 'ccen300', 'crawl100', 'crawl300', 'wiki100' or 'wiki300'.
@@ -33,15 +33,15 @@ def create_gametreetable_file(time=None, prediction_model=0, n_elements=None, ga
                     Defaults to 'crawl300'.
     """
     if prediction_model == 0:
-        append_gametreetable_file(['first', 'second', 'trueSuccess', 'trueResult', 'predSuccess'], time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
+        append_gametreetable_file(['first', 'second', 'third', 'trueSuccess', 'trueResult', 'predSuccess'], time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
         # change this to include 3 combinable elements.
     elif prediction_model == 1:
-        first_line = ['first', 'second', 'trueSuccess', 'trueResult']       # change this to include 3 combinable elements.
+        first_line = ['first', 'second', 'third', 'trueSuccess', 'trueResult']       # change this to include 3 combinable elements.
         for element_idx in range(n_elements):
             first_line.append(str(element_idx))
         append_gametreetable_file(first_line, time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
     else:
-        append_gametreetable_file(['first', 'second', 'trueSuccess', 'trueResult', 'predEmp'], time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
+        append_gametreetable_file(['first', 'second', 'third', 'trueSuccess', 'trueResult', 'predEmp'], time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
             # change this to include 3 combinable elements.
 
 
