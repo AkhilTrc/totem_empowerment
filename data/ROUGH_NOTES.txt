@@ -1,0 +1,3 @@
+* Needs to create "EmpowermentTable-X-Y.csv" file from customgametree. Needed in emp_model.py through get_empowerment_info() function in data_handle.py
+
+* 

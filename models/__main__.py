@@ -42,21 +42,24 @@ if __name__ == '__main__':
     models = [args.model]
 
     # set value calculation
-    # tuple contains first list of calculation info on trueemp, then emp, then truebin, then and bin
+    # tuple contains first list of calculation info on trueemp, then emp.
     # each calculation info tuple in the list is ordered by (dynamic, local, outgoing_combinations)
     # set dynamic true for truebin oracle model, and false for normal bin on recreated gametree version
-    value_calculation = ([(False,False,False)], [(None,None,False)], [(True,None,None)], [(False,None,None)])       # format = (dynamic, local, outgoing_combinations)
+    value_calculation = ([(False,False,False)], [(None,None,False)], [(True,None,None)], [(False,None,None)])       
+        # format: [(dynamic, local, outgoing_combinations)]
+        # trueemp = [(False,False,False)]
+        # emp = [(None,None,False)]
 
     # set list of temperatures that are to be run
     # temperatures = [0.1]
     temperatures = [args.temp]
 
     # set number of runs and steps
-    runs = 1000
-    steps = 1000 #200
+    runs = 100 # 1000
+    steps = 200 #1000
 
     # set memory type: 0, 1, 2
-    memory_type = 1 
+    memory_type = 1     # memorize previous combinations 
 
     # set vector version the custom gameteee or word vectors are based on e.g. 'crawl300', 'ccen100
     # check if desired gametree and/or vectors are available
@@ -66,10 +69,10 @@ if __name__ == '__main__':
 
     # create directory to log info from this run
     time = time.strftime('%Y%m%d-%H%M')
-    log.create_directory('data/models/{}/'.format(time))
+    log.create_directory('models/data/{}/'.format(time))
 
     # plot info for user
-    print('\nRun models: {}. Save logs to directory data/model/{}/'.format(models, time))
+    print('\nRun models: {}. Save logs to directory models/data/{}/'.format(models, time))
 
     # write info on variables to file
     model = TotemModel(time, game_version=game_version, runs=runs, steps=steps, temperatures=temperatures, memory_type=memory_type,
@@ -77,16 +80,16 @@ if __name__ == '__main__':
     log.log_model_info(model, mode=1, mode_type='{}TotemModel'.format(game_version), time=time)
 
     # run models
-    for model_type in models:
+    for model_type in models:       # [trueemp and emp] for now. Might expand to [Orcale method] to perform comparisons. 
         print('\nRun model: {}.'.format(model_type))
         # run empowerment-like models
         if model_type in ['trueemp', 'emp']:
-            # set list of empowerment calculations that are to be run for models 'trueemp', 'emp'
+            # set list of empowerment calculations that are to be run for models ['trueemp', 'emp'].
             # (1) dynamic (2) local (3) outgoing combinations
             if model_type == 'trueemp':
-                empowerment_calculation = value_calculation[0]
-            elif model_type == 'emp':
-                empowerment_calculation = value_calculation[1]
+                empowerment_calculation = value_calculation[0]  # [(False,False,False)]
+            elif model_type == 'emp':       
+                empowerment_calculation = value_calculation[1]  # [(None,None,False)]
 
             for e_c in empowerment_calculation:
                 print('\nCalculation (dynamic, local, outgoing_combinations): {}.'.format(e_c))
@@ -103,6 +106,6 @@ if __name__ == '__main__':
     visualization = Visualization(game_version, time, models, temperatures, runs, steps, memory_type)
 
     # plot gameprogress curves for comparison
-    visualization.plot_all(value_calculation, human=True)
+    # visualization.plot_all(value_calculation, human=True)
 
     print('\nDone.')

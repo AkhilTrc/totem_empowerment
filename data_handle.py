@@ -88,7 +88,7 @@ def get_combination_table(version='totem', csv=True):
         else:
             with open('data/tables/{}CombinationTable.json'.format(version),
                       encoding='utf8') as infile:
-                combination_table = json.load(infile, object_hook=helpers.jsonKeys2int)
+                combination_table = json.load(infile)  # include ', object_hook=helpers.jsonKeys2int' inside load() if needed.
     else:
         raise ValueError('Undefined version: "{}". Use "totem" instead.'.format(version))
 
@@ -161,3 +161,27 @@ def get_probability_table(game_version='totem', split_version='data', vector_ver
         return probability_table
     except:
         raise ValueError('Corresponding custom gametree table not found. Check if input was correct or create the needed table using "empowermentexploration.gametree"')
+    
+def get_empowerment_info(game_version='totem', split_version='data', vector_version='crawl300'):
+    """Returns empowerment info from custom gametree.
+
+    Args:
+        game_version (str, optional): 'totem'.
+                    States what element and combination set is going to be used.. Defaults to 'alchemy2'.
+        split_version (str, optional): 'data' or 'element'. States what cross validation split the empowerment info should be based on.
+                    Defaults to 'data'.
+        vector_version (str, optional): 'ccen100', 'ccen300', 'crawl100', 'crawl300', 'wiki100' or 'wiki300'.
+                    States what element vectors the empowerment info should be based on.
+                    Defaults to 'crawl300'.
+
+    Returns:
+        DataFrame: Empowerment info from custom gametree. Includes combination elements, predicted success
+                    and empowerment info for both calculation types (outgoing combination and children).
+    """
+    try:
+        empowerment_info = pd.read_csv('customgametree/data/{}EmpowermentTable-{}-{}.csv'.format(game_version, split_version, vector_version),
+                                  dtype={'first': int, 'second': int, 'third': int, 'predResult': int, 'empComb': float, 'empChild': float, 'binComb': float, 'binChild': float})
+
+        return empowerment_info
+    except:
+        raise ValueError('Corresponding empowerment info not found. Check if input was correct or create the needed info using "customgametree"')

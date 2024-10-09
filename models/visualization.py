@@ -48,8 +48,10 @@ class Visualization():
                                                                                       'axes.linewidth':0.6, 'axes.edgecolor': '#9d9d9d'})
         # set color
         color = '#828282'
-        if self.model_type == 'emp' or self.model_type == 'trueemp':
+        if self.model_type == 'trueemp':
             color = '#0c2e8a'
+        elif self.model_type == 'emp':
+            color = '#ffc640'
 
         color = c.to_rgba(color)
         self.colors = [color]
@@ -97,9 +99,9 @@ class Visualization():
         model = helpers.translate_model(self.model_type)
         #plt.title('Game progress averaged over {} runs, model={}'.format(self.runs, model), loc='center', wrap=True)
         plt.tight_layout()
-        if self.model_type in ['emp', 'trueemp', 'bin', 'truebin']:
-            plt.savefig('empowermentexploration/data/models/{}/{}-{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
-            plt.savefig('empowermentexploration/data/models/{}/{}-{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
+        if self.model_type in ['trueemp', 'emp']:
+            plt.savefig('models/figures/{}/{}-{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
+            plt.savefig('models/figures/{}/{}-{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
         else:
             plt.savefig('empowermentexploration/data/models/{}/{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.memory_type))
             plt.savefig('empowermentexploration/data/models/{}/{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.memory_type))

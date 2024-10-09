@@ -6,7 +6,7 @@ class Inventory():
     """Totem Game Inventory
     """
     def __init__(self, game_version, temperatures, runs, steps):
-        """Initializes a little alchemy inventory.
+        """Initializes a Totem game inventory.
 
         Args:
             game_version (str): 'totem'. States what element and combination set is going to be used.
@@ -36,7 +36,7 @@ class Inventory():
         """Updates inventory for given combination and results. Stores inventory length for given run and step.
 
         Args:
-            combination (list): List of two element indices involved in last combination.
+            combination (list): List of 1 to 3 element indices involved in last combination.
             temperature_idx (int): Current temperature index. 
             run (int): Current run.
             step (int): Current step within run.
@@ -67,10 +67,16 @@ class Inventory():
                         self.inventory_used.add(element)
             
             # delete depleted elements
-            self.update_combination_table(combination)
-            self.delete_if_depleted(combination[0])
-            self.delete_if_depleted(combination[1])
-            self.delete_if_depleted(combination[2])
+            if isinstance(combination, int):
+                combination = (combination,)
+            if len(combination) > 1:
+                self.update_combination_table(combination)
+                self.delete_if_depleted(combination[0])
+                self.delete_if_depleted(combination[1])
+                if len(combination) == 3:
+                    self.delete_if_depleted(combination[2])
+            else:
+                self.delete_if_depleted(combination[0])
         else:
             self.inventory_used = self.inventory_total.copy()
         
@@ -80,15 +86,34 @@ class Inventory():
         new_results_non_final = list(self.inventory_used.difference(inventory_used_temp))
         new_results_total = list(self.inventory_total.difference(inventory_total_temp))
         
-        # store info on trials
-        if len(new_results_total) != 0:            
-            self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
-                                            'first': combination[0], 'second': combination[1], 'third': combination[2], 
-                                            'success': success, 'results': new_results_total, 't': temperature_idx})
-        else:
-            self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
-                                            'first': combination[0], 'second': combination[1], 'third': combination[2],
-                                            'success': success, 'results': -1, 't': temperature_idx})
+        if len(combination) == 3:
+            # store info on trials
+            if len(new_results_total) != 0:            
+                self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
+                                                'first': combination[0], 'second': combination[1], 'third': combination[2], 
+                                                'success': success, 'results': new_results_total, 't': temperature_idx})
+            else:
+                self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
+                                                'first': combination[0], 'second': combination[1], 'third': combination[2],
+                                                'success': success, 'results': -1, 't': temperature_idx})
+        elif len(combination) == 2:
+            if len(new_results_total) != 0:            
+                self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
+                                                'first': combination[0], 'second': combination[1], 
+                                                'success': success, 'results': new_results_total, 't': temperature_idx})
+            else:
+                self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
+                                                'first': combination[0], 'second': combination[1],
+                                                'success': success, 'results': -1, 't': temperature_idx})
+        elif len(combination) == 1:
+            if len(new_results_total) != 0:            
+                self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
+                                                'first': combination[0], 
+                                                'success': success, 'results': new_results_total, 't': temperature_idx})
+            else:
+                self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
+                                                'first': combination[0],
+                                                'success': success, 'results': -1, 't': temperature_idx})
         
         return (new_results_non_final, new_results_total)
     
@@ -101,8 +126,18 @@ class Inventory():
         Returns:
             list: List of element indices that resulted from combination.
         """
-        if combination[0] in self.combination_table and combination[1] in self.combination_table[combination[0]]:
-            return self.combination_table[combination[0]][combination[1]]
+        print("Combination: ", combination, type(combination))
+        # combination = tuple(combination)
+        if isinstance(combination, int):
+            combination = (combination,)
+        if len([combination]) == 3:
+            other_parents_key = tuple(sorted([c for c in combination if c != combination[0]]))
+            other_parents = ','.join(map(str, other_parents_key))  # Convert tuple to string
+        elif len([combination]) == 2:
+            other_parents = combination[1]
+            
+        if combination[0] in self.combination_table and other_parents in self.combination_table[combination[0]]:
+            return self.combination_table[combination[0]][other_parents]
         else:
             return list()
     
@@ -188,7 +223,11 @@ class Inventory():
         Args:
             combination (list): List of element indices involved in combination.
         """
-        if combination[0] in self.combination_table_depletion and combination[1] in self.combination_table_depletion[combination[0]]:
-            del self.combination_table_depletion[combination[0]][combination[1]]
-        if combination[1] in self.combination_table_depletion and combination[0] in self.combination_table_depletion[combination[1]]:
-            del self.combination_table_depletion[combination[1]][combination[0]]
+        if len(combination) == 1:
+            if combination[0] in self.combination_table_depletion:
+                del self.combination_table_depletion[combination[0]] 
+        else:
+            if combination[0] in self.combination_table_depletion and combination[1] in self.combination_table_depletion[combination[0]]:
+                del self.combination_table_depletion[combination[0]][combination[1]]
+            if combination[1] in self.combination_table_depletion and combination[0] in self.combination_table_depletion[combination[1]]:
+                del self.combination_table_depletion[combination[1]][combination[0]]

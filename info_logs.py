@@ -141,12 +141,12 @@ def log_model_info(model_info, mode, mode_type, time):
         time (str): Timestamp.
     """
     if mode == 1:
-        filename = 'gametree/data/models/{}/{}ModelInfo.txt'.format(time, mode_type)
+        filename = 'models/data/{}/{}ModelInfo.txt'.format(time, mode_type)
     elif mode == 2:
         filename = 'gametree/data/human/{}/{}ModelInfo.txt'.format(time, mode_type)
         model_info.data = {}
     elif mode == 3:
-        filename = 'gametree/data/gametree/{}/{}ModelInfo.txt'.format(time, mode_type)    # = '/2387532/tinyalchemyLinkPredModelInfo.txt' for this example. 
+        filename = 'models/data/gametree/{}/{}ModelInfo.txt'.format(time, mode_type)    # = '/2387532/tinyalchemyLinkPredModelInfo.txt' for this example. 
 
     # convert object information to dictionary
     model_dictionary = model_info.__dict__      # converts the CrossValidation object into dictionary. For the game tree in this case. 
@@ -173,18 +173,18 @@ def store_inventory(game_version, inventory, time, model_type, memory, empowerme
                                 or length of set of resulting elements.
 
     """
-    if model_type in ['emp', 'bin', 'truebin', 'trueemp', 'binandcbu']:
-        filename = 'data/models/{}/{}-{}-{}-memory{}-inventory.mat'.format(time, game_version, model_type, empowerment_calculation, memory)
+    if model_type in ['emp', 'trueemp']:
+        filename = 'models/data/{}/{}-{}-{}-memory{}-inventory.mat'.format(time, game_version, model_type, empowerment_calculation, memory)
     else:
-        filename = 'data/models/{}/{}-{}-memory{}-inventory.mat'.format(time, game_version, model_type, memory)
+        filename = 'models/data/{}/{}-{}-memory{}-inventory.mat'.format(time, game_version, model_type, memory)
     scipy.io.savemat(filename, mdict={'out': inventory.inventory_size_over_time}, oned_as='row')
 
     # convert to dataframe
     combinations = pd.DataFrame(inventory.combination_storage)
-    if model_type in ['emp', 'bin', 'truebin', 'trueemp', 'binandcbu']:
-        filename = 'data/models/{}/{}{}Combinations-{}-memory{}.csv'.format(time, game_version, model_type.capitalize(), empowerment_calculation, memory)
+    if model_type in ['emp', 'trueemp']:
+        filename = 'models/data/{}/{}{}Combinations-{}-memory{}.csv'.format(time, game_version, model_type.capitalize(), empowerment_calculation, memory)
     else:
-        filename = 'data/models/{}/{}{}Combinations-memory{}.csv'.format(time, game_version, model_type.capitalize(), memory)
+        filename = 'models/data/{}/{}{}Combinations-memory{}.csv'.format(time, game_version, model_type.capitalize(), memory)
     combinations.to_csv(filename, index=False)
 
 def store_utility(utilities, time, game_version, data_source, model_type, memory, empowerment_calculation=None, subset_type=None, sru_success=False):

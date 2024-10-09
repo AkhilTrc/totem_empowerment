@@ -4,7 +4,7 @@ from itertools import combinations_with_replacement
 import data_handle
 import helpers
 import numpy as np
-from inventory import Inventory
+from models.inventory import Inventory
 
 
 class TrueEmpModel():
@@ -108,8 +108,9 @@ class TrueEmpModel():
             self.update_empowerment_combinations(forget_combination, inventory)
 
         # update memory with new combination and delete it from combination empowerment storage
-        self.memory[combination[0],combination[1],combination[2]] = 1
-        self.empowerment_combinations.pop((combination[0],combination[1], combination[2]))
+        if len(combination) > 2:
+            self.memory[combination[0],combination[1],combination[2]] = 1
+            self.empowerment_combinations.pop((combination[0],combination[1], combination[2]))
 
         # delete combination out of combination table
         if self.outgoing_combinations is True:
@@ -123,7 +124,12 @@ class TrueEmpModel():
             inventory (Inventory): Info on current inventory.
         """
         # set empowerment value for combination
-        self.empowerment_combinations[combination[0],combination[1],combination[2]] = self.get_empowerment_value(combination, inventory)
+        if len(combination) == 1:
+            self.empowerment_combinations[combination[0]] = self.get_empowerment_value(combination, inventory)
+        elif len(combination) == 2:
+            self.empowerment_combinations[combination[0],combination[1]] = self.get_empowerment_value(combination, inventory)
+        elif len(combination) == 3:
+            self.empowerment_combinations[combination[0],combination[1],combination[2]] = self.get_empowerment_value(combination, inventory)        
 
     def get_empowerment_value(self, combination, inventory):
         """Returns combination empowerment value depending on the calculation type.
@@ -131,6 +137,7 @@ class TrueEmpModel():
         Args:
             combination (list): List of element indices that are involved in combination.
             inventory (Inventory): Info on current inventory.
+        """
         """
         # check results of combination
         if combination[0] in self.combination_table and combination[1] in self.combination_table[combination[0]]:
@@ -186,7 +193,95 @@ class TrueEmpModel():
                 empowerment = len(empowerment)
 
         return empowerment
+        """
+        ############################################################################################
+        """Returns combination empowerment value for up to 3-element combinations.
+
+        Args:
+            combination (list): List of element indices involved in combination (1 to 3 elements).
+            inventory (Inventory): Info on current inventory.
+        """
+        def check_combination(combo):
+            if len(combo) == 1:
+                return [combo[0]]
+            elif len(combo) == 2:
+                if combo[0] in self.combination_table and combo[1] in self.combination_table[combo[0]]:
+                    return self.combination_table[combo[0]][combo[1]]
+            elif len(combo) == 3:
+                # Check if this triplet combination exists in the combination table
+                if combo[0] in self.combination_table and \
+                    combo[1] in self.combination_table[combo[0]] and \
+                    combo[2] in self.combination_table[combo[0]][combo[1]]:
+                    return self.combination_table[combo[0]][combo[1]][combo[2]]         # Might cause error!!!!!!!!
+            return []
+
+        subcombinations = [combination[:i] for i in range(1, len(combination) + 1)]
+
+        if self.outgoing_combinations:
+            empowerment = 0
+        else:
+            empowerment = set()
+
+        # Process each subcombination
+        #
+        for subcombo in subcombinations:
+            results = check_combination(subcombo)
+            
+            for r in results:
+                if r in self.parent_table:
+                    inventory_used_temp = inventory.inventory_used.copy()
+                    inventory_used_temp.add(r)
+
+                    if self.outgoing_combinations:              # Don't really need this condition because it is = False for both [emp and trueemp].
+                        first_r = self.combination_table_csv.eval('first==@r')
+                        second_r = self.combination_table_csv.eval('second==@r')
+                        third_r = self.combination_table_csv.eval('third==@r')
+                        if not self.local:
+                            combinations = self.combination_table_csv.loc[first_r | second_r | third_r].drop_duplicates(subset=['first', 'second', 'third'])
+                        else:
+                            first_inventory = self.combination_table_csv.eval('first in @inventory_used_temp')
+                            second_inventory = self.combination_table_csv.eval('second in @inventory_used_temp')
+                            third_inventory = self.combination_table_csv.eval('third in @inventory_used_temp')
+                            combinations = self.combination_table_csv.loc[(first_r) | (first_inventory) | (first_r & second_inventory) | (first_inventory & second_r) | (first_inventory & second_r & third_r) | \
+                                                                          (first_r & second_inventory & third_inventory)].drop_duplicates(subset=['first', 'second', 'third'])
+                            # combinations = self.combination_table_csv.loc[(first_r) | (first_r & second_inventory) | (first_inventory & second_r) | (first_r & second_inventory) | (first_r & second_inventory)].drop_duplicates(subset=['first', 'second', 'third])
+                        empowerment += len(combinations.index)
+                    else:
+                        if not self.local:      # For Global Empowerment. 
+                            if (not self.dynamic) or (self.dynamic and r not in inventory.inventory_total):
+                                # if static. or if dynamic and element not in inventory.
+                                empowerment.update(self.parent_table[r])
+                        else:   # For Local Empowerment. 
+                            if (not self.dynamic) or (self.dynamic and r not in inventory.inventory_total):
+                                """
+                                for item in inventory_used_temp:
+                                    a = sorted([r, item])
+                                    if a[0] in self.combination_table and a[1] in self.combination_table[a[0]]:
+                                        empowerment.update(self.combination_table[a[0]][a[1]])
+                                """
+                                for n in range(len(inventory_used_temp)):
+                                    for item in combination(inventory_used_temp, n):
+                                        # a = sorted([r.append(item)])
+                                        # other_items = tuple(sorted([i for i in item if i!= a[i]]))
+                                        item = ','.join(map(str, item))  # Convert tuple to string
+                                        
+                                        if r in self.combination_table and item in self.combination_table[r]:
+                                            empowerment.update(self.combination_table[r][item])
+                                        """use if needed
+                                        if r in self.combination_table and self.is_sublist(item, self.combination_table[r]):
+                                            empowerment.update(self.combination_table[r][item])
+                                        """
+                                        
+        if not self.outgoing_combinations:
+            if self.dynamic:
+                empowerment = len(empowerment.difference(inventory.inventory_total))
+            else:
+                empowerment = len(empowerment)
+
+        return empowerment
     
+    def is_sublist(sublist, main_list):
+        return ''.join(map(str, sublist)) in ''.join(map(str, main_list))
 
     def reset(self):
         """Resets combination empowerment storage to combination between basic elements.
@@ -204,5 +299,10 @@ class TrueEmpModel():
         self.empowerment_combinations = dict()
         inventory_basic = Inventory(self.game_version,0,0,0)
         inventory_basic.reset()
-        for combination in combinations_with_replacement([0,1,2,3,4,5],2):
-            self.update_empowerment_combinations(sorted(combination), inventory_basic)
+
+        ## For 1, 2 and 3 element combinations. 
+        #
+        comb_len = 3     
+        for size in range(1, comb_len + 1):
+            for combination in combinations_with_replacement([0,1,2,3,4,5], size):
+                self.update_empowerment_combinations(sorted(combination), inventory_basic)

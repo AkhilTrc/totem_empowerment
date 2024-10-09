@@ -46,7 +46,7 @@ def jsonKeys2int(x):
         dict: Dictionary with int keys.
     """
     if isinstance(x, dict):
-        return {int(k):v for k,v in x.items()}
+        return {int(k):v for k,v in x.items()}      # Need to change to int(value or '0')
 
     return x
 
@@ -116,3 +116,21 @@ def adjust_lightness(color, amount=0.5):
         c = color
     c = colorsys.rgb_to_hls(*mc.to_rgb(c))
     return colorsys.hls_to_rgb(c[0], max(0, min(1, amount * c[1])), c[2])
+
+def translate_model(model_type):
+    """Maps model shortcut to full name.
+
+    Args:
+        model_type (str): Model shortcut.
+
+    Returns:
+        str: Model full name.
+    """
+    if model_type == 'emp':
+        model = 'empowerment (approx.)'
+    elif model_type == 'trueemp':
+        model = 'empowerment'
+    else:
+        raise ValueError('Undefined model version: "{}". Use "emp" or "trueemp" instead.'.format(model_type))
+
+    return model
