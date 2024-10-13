@@ -51,12 +51,12 @@ if __name__ == '__main__':
         # emp = [(None,None,False)]
 
     # set list of temperatures that are to be run
-    # temperatures = [0.1]
+    # temperatures = [0.1] or [0.1, 1.0]
     temperatures = [args.temp]
 
     # set number of runs and steps
     runs = 100 # 1000
-    steps = 200 #1000
+    steps = 82 # 1000
 
     # set memory type: 0, 1, 2
     memory_type = 1     # memorize previous combinations 
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     log.log_model_info(model, mode=1, mode_type='{}TotemModel'.format(game_version), time=time)
 
     # run models
-    for model_type in models:       # [trueemp and emp] for now. Might expand to [Orcale method] to perform comparisons. 
+    for model_type in models:       # [trueemp and emp] for now. Might expand to [Orcale method] as well to perform comparisons. 
         print('\nRun model: {}.'.format(model_type))
         # run empowerment-like models
         if model_type in ['trueemp', 'emp']:

@@ -42,10 +42,9 @@ def create_gametreetable_file(time=None, prediction_model=0, n_elements=None, ga
         append_gametreetable_file(first_line, time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
     else:
         append_gametreetable_file(['first', 'second', 'third', 'trueSuccess', 'trueResult', 'predEmp'], time=time, prediction_model=prediction_model, first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
-            # change this to include 3 combinable elements.
 
 
-def create_empowermenttable_file(game_version='alchemy2', split_version='data', vector_version='crawl300'):
+def create_empowermenttable_file(game_version='totem', split_version='data', vector_version='crawl300'):
     """Creates file for later result logging of empowerment table.
 
     Args:
@@ -56,10 +55,9 @@ def create_empowermenttable_file(game_version='alchemy2', split_version='data', 
                     States what element vectors the table should be based on.
                     Defaults to 'crawl300'.
     """
-    append_empowermenttable_file(['first', 'second', 'predResult', 'empComb', 'empChild', 'binComb', 'binChild'], first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
-        # change this to include 3 combinable elements.
+    append_empowermenttable_file(['first', 'second', 'third', 'predResult', 'empComb', 'empChild', 'binComb', 'binChild'], first_line=True, game_version=game_version, split_version=split_version, vector_version=vector_version)
 
-def append_gametreetable_file(*data, time=None, prediction_model=0, first_line=False, game_version='alchemy2', split_version='data', vector_version='crawl300'):
+def append_gametreetable_file(*data, time=None, prediction_model=0, first_line=False, game_version='totem', split_version='data', vector_version='crawl300'):
     """Writes test results to csv file continuously.
 
     Args:
@@ -80,7 +78,7 @@ def append_gametreetable_file(*data, time=None, prediction_model=0, first_line=F
     """
     # write first line
     if first_line is False:
-        data_new = np.concatenate((data[0], data[1]), axis=1)
+        data_new = np.concatenate((data[0], data[1], data[2]), axis=1)
     else:
         data_new = data
 
@@ -124,7 +122,7 @@ def append_empowermenttable_file(*data, first_line=False, game_version='totem', 
 
     # append data
     for line in data_new:
-        with open('empowermentexploration/resources/customgametree/data/{}EmpowermentTable-{}-{}.csv'.format(game_version, split_version, vector_version), 'a+', newline='') as outfile:
+        with open('customgametree/data/{}EmpowermentTable-{}-{}.csv'.format(game_version, split_version, vector_version), 'a+', newline='') as outfile:
             writer = csv.writer(outfile)
             writer.writerow(line)
 
@@ -135,8 +133,8 @@ def log_model_info(model_info, mode, mode_type, time):
         model_info (TotemModel, HumanModel or CrossValidation): Model that is to be logged.
         mode (int): 1 = model, 2 = human, 3 = gametree
         mode_type (str): States for what model the data is logged.
-                    (1) mode 1 - 'base', 'bin', 'emp', 'truebin', 'trueemp', 'sim', 'cbv' or 'cbu'
-                    (2) mode 2 - 'base', 'bin', 'emp', 'truebin', 'trueemp', 'sim', 'cbv' or 'cbu'
+                    (1) mode 1 - 'emp', 'truebin', 'trueemp'
+                    (2) mode 2 - 'emp', 'truebin', 'trueemp'
                     (3) mode 3 - 'linkPred' or 'elemPred'
         time (str): Timestamp.
     """
@@ -146,7 +144,7 @@ def log_model_info(model_info, mode, mode_type, time):
         filename = 'gametree/data/human/{}/{}ModelInfo.txt'.format(time, mode_type)
         model_info.data = {}
     elif mode == 3:
-        filename = 'models/data/gametree/{}/{}ModelInfo.txt'.format(time, mode_type)    # = '/2387532/tinyalchemyLinkPredModelInfo.txt' for this example. 
+        filename = 'gametree/data/{}/{}ModelInfo.txt'.format(time, mode_type)    # = '/2387532/tinyalchemyLinkPredModelInfo.txt' for this example. 
 
     # convert object information to dictionary
     model_dictionary = model_info.__dict__      # converts the CrossValidation object into dictionary. For the game tree in this case. 
@@ -212,7 +210,7 @@ def store_utility(utilities, time, game_version, data_source, model_type, memory
                     Defaults to 'max'.
         sru_success (boolean, optional): True if utilities of only successful combinations are considered.
                     Of interest only for trueemp and truebin models. Defaults to False.
-
+j
     """
     if subset_type is not None:
         subset_type = '-{}'.format(subset_type)
@@ -227,7 +225,7 @@ def store_utility(utilities, time, game_version, data_source, model_type, memory
         empowerment_calculation = '-{}'.format(empowerment_calculation)
     else:
         empowerment_calculation = ''
-    filename = 'empowermentexploration/data/human/{}/{}{}Utility-{}{}-memory{}{}{}.csv'.format(time, game_version, model_type.capitalize(), data_source,
+    filename = 'data/human/{}/{}{}Utility-{}{}-memory{}{}{}.csv'.format(time, game_version, model_type.capitalize(), data_source,
                                                                                                  empowerment_calculation, memory, subset_type,
                                                                                                  sru_success)
     utilities.to_csv(filename, index=False)
@@ -246,12 +244,12 @@ def store_regression_data(data, time, z_score, model_type, memory_type, game_ver
                     (1) 0 = no memory
                     (2) 1 = memory
                     (3) 2 = fading memory (delete random previous combination every 10 steps)
-        game_version (str): 'alchemy1', 'alchemy2', 'tinyalchemy' or 'tinypixels'.
+        game_version (str): 'totem'.
                         States what player data set is going to be used.
     """
     if z_score is True:
         z_score = '-scaled'
     else:
         z_score = ''
-    filename = 'empowermentexploration/data/regression/{}-{}-valuedifferences-{}{}-{}.csv'.format(time, game_version, model_type, z_score, memory_type)
+    filename = 'data/regression/{}-{}-valuedifferences-{}{}-{}.csv'.format(time, game_version, model_type, z_score, memory_type)
     data.to_csv(filename, index=False)

@@ -16,7 +16,7 @@ class Inventory():
         """        
         # initialize storage
         self.inventory_size_over_time = np.zeros((temperatures, runs, steps + 1))
-        self.inventory_size_over_time[:,:,0] = 4
+        self.inventory_size_over_time[:,:,0] = 6
         self.combination_storage = list()
         
         # load info tables
@@ -49,34 +49,37 @@ class Inventory():
         combination_results = self.get_combination_results(combination)
         
         # set success to 1 if combination is successful
-        if len(combination_results)> 0:
+        if combination_results is not None and len(combination_results) > 0:
             success = 1
         else:
             success = 0
         
         # update total inventory
-        self.inventory_total.update(combination_results)
+        if combination_results is not None:
+            self.inventory_total.update(combination_results)
         if self.game_version == 'totem':
             condition_elements = self.check_conditions()
             self.inventory_total.update(condition_elements) 
 
             # update used inventory
-            for element in combination_results + condition_elements:
+            for element in (combination_results or []) + condition_elements:
                 if self.is_final(element) is False:
                     if self.is_depleted(element) is False:
                         self.inventory_used.add(element)
             
             # delete depleted elements
-            if isinstance(combination, int):
-                combination = (combination,)
-            if len(combination) > 1:
-                self.update_combination_table(combination)
+            self.update_combination_table(combination)
+            
+            if len(combination) == 1:   # if isinstance(combination, int):
+                # combination = (combination,)
+                self.delete_if_depleted(combination[0])
+            elif len(combination) == 2:
                 self.delete_if_depleted(combination[0])
                 self.delete_if_depleted(combination[1])
-                if len(combination) == 3:
-                    self.delete_if_depleted(combination[2])
-            else:
+            elif len(combination) == 3:
                 self.delete_if_depleted(combination[0])
+                self.delete_if_depleted(combination[1])
+                self.delete_if_depleted(combination[2])
         else:
             self.inventory_used = self.inventory_total.copy()
         
@@ -105,7 +108,7 @@ class Inventory():
                 self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
                                                 'first': combination[0], 'second': combination[1],
                                                 'success': success, 'results': -1, 't': temperature_idx})
-        elif len(combination) == 1:
+        elif len(combination) == 1: # isinstance(combination, int):
             if len(new_results_total) != 0:            
                 self.combination_storage.append({'id': run, 'trial': step, 'inventory': len(self.inventory_total), 
                                                 'first': combination[0], 
@@ -126,6 +129,7 @@ class Inventory():
         Returns:
             list: List of element indices that resulted from combination.
         """
+        """
         print("Combination: ", combination, type(combination))
         # combination = tuple(combination)
         if isinstance(combination, int):
@@ -136,10 +140,29 @@ class Inventory():
         elif len([combination]) == 2:
             other_parents = combination[1]
             
-        if combination[0] in self.combination_table and other_parents in self.combination_table[combination[0]]:
-            return self.combination_table[combination[0]][other_parents]
-        else:
-            return list()
+        if combination is not None: 
+            if combination[0] in self.combination_table and other_parents in self.combination_table[combination[0]]:
+                return self.combination_table[combination[0]][other_parents]
+            else:
+                return list()
+        """
+        if isinstance(combination, int):
+            combination = (combination,)
+            if combination[0] in self.combination_table:
+                return self.combination_table[combination[0]]
+
+        elif len(combination) == 2:
+            if combination[0] in self.combination_table and combination[1] in self.combination_table[combination[0]]:
+                return self.combination_table[combination[0]][combination[1]]
+            else:
+                return list()
+        elif len(combination) == 3:
+            if (combination[0] in self.combination_table and 
+            combination[1] in self.combination_table[combination[0]] and 
+            combination[2] in self.combination_table[combination[0]][combination[1]]):
+                return self.combination_table[combination[0]][combination[1]][combination[2]]
+            else:
+                return list()
     
     def check_conditions(self):
         """Returns elements for which conditions are fulfilled.
@@ -226,8 +249,21 @@ class Inventory():
         if len(combination) == 1:
             if combination[0] in self.combination_table_depletion:
                 del self.combination_table_depletion[combination[0]] 
-        else:
+        elif len(combination) == 2:
             if combination[0] in self.combination_table_depletion and combination[1] in self.combination_table_depletion[combination[0]]:
                 del self.combination_table_depletion[combination[0]][combination[1]]
             if combination[1] in self.combination_table_depletion and combination[0] in self.combination_table_depletion[combination[1]]:
                 del self.combination_table_depletion[combination[1]][combination[0]]
+        elif len(combination) == 3:
+            if (combination[0] in self.combination_table_depletion and 
+            combination[1] in self.combination_table_depletion[combination[0]] and 
+            combination[2] in self.combination_table_depletion[combination[0]][combination[1]]):
+                del self.combination_table_depletion[combination[0]][combination[1]][combination[2]]
+            if (combination[1] in self.combination_table_depletion and 
+            combination[0] in self.combination_table_depletion[combination[1]] and 
+            combination[2] in self.combination_table_depletion[combination[1]][combination[0]]):
+                del self.combination_table_depletion[combination[1]][combination[0]][combination[2]]
+            if (combination[2] in self.combination_table_depletion and 
+            combination[0] in self.combination_table_depletion[combination[2]] and 
+            combination[1] in self.combination_table_depletion[combination[2]][combination[0]]):
+                del self.combination_table_depletion[combination[2]][combination[0]][combination[1]]

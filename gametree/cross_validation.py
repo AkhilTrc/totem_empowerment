@@ -101,7 +101,7 @@ class CrossValidation():
 
         #if self.prediction_model == 0:
         if self.prediction_model != 1:
-            data_table = data_table.drop_duplicates(subset=['first', 'second', 'third'])     # change this to include 3 combinable elements.
+            data_table = data_table.drop_duplicates(subset=['first', 'second', 'third'])     
 
         # initialize storage for results
         result_metrics = list()

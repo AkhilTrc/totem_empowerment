@@ -58,8 +58,8 @@ class TotemModel():
 
         Args:
             model_type (str): model_version (str, optional): States what kind of model is going to be used.
-                        (1) 'emp' = empowerment model based on the self-constructed game tree
-                        (2) 'trueemp' = empowerment model based on the true game tree
+                        (1) 'trueemp' = empowerment model based on the true game tree
+                        (2) 'emp' = empowerment model based on the self-constructed game tree
             empowerment_calculation (tuple, optional): Tuple made of three entries. Defaults to (True,True,False).
                         - dynamic (bool): Whether calculation of empowerment is done dynamically or static.
                         - local (bool): Whether calculation of empowerment is done locally or globally.
@@ -90,10 +90,14 @@ class TotemModel():
                 model.reset()                       
 
                 for step in range(self.steps):
+                    print("Step {}: ".format(step))
                     combination = model.choose_combination(temperature_value, (step==0 or self.memory_type == 1 or self.memory_type == 2 or len(results[0]) != 0))
+                    # if combination is not None:
                     results = inventory.update(combination, temperature_idx, run, step)
                     model.update_model_specifics(combination, results, inventory, step)
- 
+
+            # visualization of inventory sizes
+            visualization.plot_inventory_sizes(inventory, temperature_idx)
 
         # visualization of training progress
         visualization.plot_gameprogress(inventory)

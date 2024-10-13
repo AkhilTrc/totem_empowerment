@@ -100,16 +100,16 @@ class Visualization():
         #plt.title('Game progress averaged over {} runs, model={}'.format(self.runs, model), loc='center', wrap=True)
         plt.tight_layout()
         if self.model_type in ['trueemp', 'emp']:
-            plt.savefig('models/figures/{}/{}-{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
-            plt.savefig('models/figures/{}/{}-{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
+            plt.savefig('models/data/{}/{}-{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
+            plt.savefig('models/data/{}/{}-{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.empowerment_calculation, self.memory_type))
         else:
-            plt.savefig('empowermentexploration/data/models/{}/{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.memory_type))
-            plt.savefig('empowermentexploration/data/models/{}/{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.memory_type))
+            plt.savefig('models/data/{}/{}-{}-memory{}-averageGameProgress.svg'.format(self.time, self.game_version, self.model_type, self.memory_type))
+            plt.savefig('models/data/{}/{}-{}-memory{}-averageGameProgress.png'.format(self.time, self.game_version, self.model_type, self.memory_type))
         plt.close()
 
     def plot_inventory_sizes(self, inventory, temperature_idx):
         """Plots density of inventory sizes.
-
+    
         Args:
             inventory: (Inventory): Inventory info.
             temperature_idx (int): Index of given temperature.
@@ -134,22 +134,11 @@ class Visualization():
         plt.xlabel('Inventory size')
         plt.ylabel('Count')
         model = helpers.translate_model(self.model_type)
-        if self.model_type == 'base':
-            #plt.title('Density of inventory sizes at {} runs, model={}'.format(self.runs, model), loc='center', wrap=True)
-            plt.tight_layout()
-            plt.savefig('empowermentexploration/data/models/{}/{}-memory{}-inventorySizes.svg'.format(self.time, self.model_type, self.memory_type))
-            plt.savefig('empowermentexploration/data/models/{}/{}-memory{}-inventorySizes.png'.format(self.time, self.model_type, self.memory_type))
-        elif self.model_type in ['emp', 'trueemp', 'bin', 'truebin']:
+        if self.model_type in ['emp', 'trueemp', 'truebin']:
             #plt.title('Density of inventory sizes at {} runs, model={}, T={}'.format(self.runs, model, self.temperatures[temperature_idx]), loc='center', wrap=True)
             plt.tight_layout()
-            plt.savefig('empowermentexploration/data/models/{}/{}-{}-memory{}-temperature{}-inventorySizes.svg'.format(self.time, self.model_type, self.empowerment_calculation, self.memory_type, self.temperatures[temperature_idx]))
-            plt.savefig('empowermentexploration/data/models/{}/{}-{}-memory{}-temperature{}-inventorySizes.png'.format(self.time, self.model_type, self.empowerment_calculation, self.memory_type, self.temperatures[temperature_idx]))
-        else:
-            #plt.title('Density of inventory sizes at {} runs, model={}, T={}'.format(self.runs, model, self.temperatures[temperature_idx]), loc='center', wrap=True)
-            plt.tight_layout()
-            plt.savefig('empowermentexploration/data/models/{}/{}-memory{}-temperature{}-inventorySizes.svg'.format(self.time, self.model_type, self.memory_type, self.temperatures[temperature_idx]))
-            plt.savefig('empowermentexploration/data/models/{}/{}-memory{}-temperature{}-inventorySizes.png'.format(self.time, self.model_type, self.memory_type, self.temperatures[temperature_idx]))
-
+            plt.savefig('models/data/{}/{}-{}-memory{}-temperature{}-inventorySizes.svg'.format(self.time, self.model_type, self.empowerment_calculation, self.memory_type, self.temperatures[temperature_idx]))
+            plt.savefig('models/data/{}/{}-{}-memory{}-temperature{}-inventorySizes.png'.format(self.time, self.model_type, self.empowerment_calculation, self.memory_type, self.temperatures[temperature_idx]))
         plt.close()
 
     def plot_all(self, value_calculation, human=True):

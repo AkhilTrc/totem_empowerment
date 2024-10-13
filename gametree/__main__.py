@@ -2,7 +2,7 @@ import time
 
 import info_logs as log
 import pandas as pd
-from cross_validation import CrossValidation
+from gametree.cross_validation import CrossValidation
 
 if __name__ == '__main__':
     # YOUR ACTION IS REQUIRED HERE: SET APPROPRIATE VARIABLES
@@ -77,13 +77,13 @@ if __name__ == '__main__':
     print('\nJoin model results.')
     link_prediction_table = pd.read_csv('gametree/data/{}/{}LinkPredTable-{}-{}{}.csv'.format(time, game_version, split_version, vector_version, dim))
     link_prediction_table = link_prediction_table.drop(['trueSuccess', 'trueResult'], axis=1)
-    link_prediction_table = link_prediction_table.set_index(['first', 'second'])            # change this to include 3 combinable elements.
+    link_prediction_table = link_prediction_table.set_index(['first', 'second', 'third'])            
     link_prediction_table = link_prediction_table.groupby(link_prediction_table.index).mean()
 
     if model_version == 'element':
         element_prediction_table = pd.read_csv('gametree/data/{}/{}ElemPredTable-{}-{}{}.csv'.format(time, game_version, split_version, vector_version, dim))
         element_prediction_table = element_prediction_table.drop(['trueSuccess', 'trueResult'], axis=1)
-        element_prediction_table = element_prediction_table.set_index(['first', 'second'])      # change this to include 3 combinable elements.
+        element_prediction_table = element_prediction_table.set_index(['first', 'second', 'third'])      
         element_prediction_table = element_prediction_table.groupby(element_prediction_table.index).mean()
         gametree_table = link_prediction_table.join(element_prediction_table, how='outer')
 
@@ -91,17 +91,17 @@ if __name__ == '__main__':
         print('This is EMPOWERMENT PREDICTION table: \n')
         empowerment_prediction_table = pd.read_csv('gametree/data/{}/{}EmpPredTable-{}-{}{}.csv'.format(time, game_version, split_version, vector_version, dim))
         empowerment_prediction_table = empowerment_prediction_table.drop(['trueSuccess', 'trueResult'], axis=1)
-        empowerment_prediction_table = empowerment_prediction_table.set_index(['first', 'second'])      # change this to include 3 combinable elements.
+        empowerment_prediction_table = empowerment_prediction_table.set_index(['first', 'second', 'third'])      
         empowerment_prediction_table = empowerment_prediction_table.groupby(empowerment_prediction_table.index).mean()
         gametree_table = link_prediction_table.join(empowerment_prediction_table, how='outer')
 
     gametree_table.index = pd.MultiIndex.from_tuples(gametree_table.index)
-    gametree_table.index.names = ['first', 'second']            # change this to include 3 combinable elements.
+    gametree_table.index.names = ['first', 'second', 'third']            
     print(gametree_table)
 
-    #add column 'predResult'
+    # add column 'predResult'
     if game_version == 'totem':
-        elements = 149
+        elements = 136
 
     if model_version == 'element':
         gametree_table['predResult'] = gametree_table[gametree_table.columns[-elements:]].idxmax(axis='columns').astype(int)

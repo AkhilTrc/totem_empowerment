@@ -5,7 +5,7 @@ import pandas as pd
 import tensorflow as tf
 import tensorflow_docs as tfdocs
 import tensorflow_docs.modeling
-from visualization import Visualization
+from gametree.visualization import Visualization
 from sklearn.metrics.pairwise import cosine_similarity
 from tensorflow import keras
 from tensorflow.keras import backend, layers

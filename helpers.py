@@ -6,7 +6,7 @@ import scipy.special
 from scipy import stats
 
 
-def softmax(x, temperature=1):
+def softmax(values, temperature=1):
     """Applies softmax on a given list considering a temperature value. Softmax is applied row-wise if list is 2D.
 
     Args:
@@ -20,15 +20,19 @@ def softmax(x, temperature=1):
     """
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-
+        
         if not isinstance(x, np.ndarray):
             x = list(x)
             x = np.array(x)
-
+        
         if x.ndim == 2:
             x = preprocessing.scale(x, axis=1)
             x_temperature = x/temperature
             probabilities = scipy.special.softmax(x_temperature, axis=1)
+        if x.ndim == 3:
+            x = preprocessing.scale(x, axis=2)
+            x_temperature = x/temperature
+            probabilities = scipy.special.softmax(x_temperature, axis=2)
         else:
             x = preprocessing.scale(x)
             x_temperature = x/temperature
@@ -84,16 +88,17 @@ def softmax(x, temperature=1):
             x = list(x)
             x = np.array(x)
 
-        if x.ndim == 2:
-            x = preprocessing.scale(x, axis=1)
-            x_temperature = x/temperature
-            probabilities = scipy.special.softmax(x_temperature, axis=1)
-        else:
-            x = preprocessing.scale(x)
-            x_temperature = x/temperature
-            probabilities = scipy.special.softmax(x_temperature)
+        if x != ():
+            if x.ndim == 2:
+                x = preprocessing.scale(x, axis=1)
+                x_temperature = x/temperature
+                probabilities = scipy.special.softmax(x_temperature, axis=1)
+            else:
+                x = preprocessing.scale(x)
+                x_temperature = x/temperature
+                probabilities = scipy.special.softmax(x_temperature)
 
-        return probabilities
+            return probabilities
     
 def adjust_lightness(color, amount=0.5):
     """Function to lighten or darken given color by multiplying (1-luminosity) by the given amount.

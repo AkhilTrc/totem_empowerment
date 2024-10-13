@@ -1,7 +1,7 @@
 import tensorflow as tf
 import tensorflow_docs as tfdocs
 import tensorflow_docs.modeling
-from empowermentexploration.gametree.visualization import Visualization
+from gametree.visualization import Visualization
 from tensorflow import keras
 from tensorflow.keras import layers
 
@@ -9,7 +9,7 @@ from tensorflow.keras import layers
 class EmpowermentPredictionModel():
     """Model that predicts empowerments of combinations.
     """
-    def __init__(self, time, step, epochs=1, batch_size=32, steps_per_epoch=None, game_version='alchemy2'): #output_bias
+    def __init__(self, time, step, epochs=1, batch_size=32, steps_per_epoch=None, game_version='totem'): #output_bias
         """Initializes an empowerment prediction model.
 
         Args:
@@ -24,7 +24,7 @@ class EmpowermentPredictionModel():
                         This can be useful to tell the model to "pay more attention" to samples from an under-represented class.
                         Defaults to None.
             output_bias (float, optional): Initial bias to get better initial convergence. Defaults to None.
-            game_version (str, optional): 'totem_game'.
+            game_version (str, optional): 'totem'.
                         States what element and combination set is going to be used.
         """
         # print info for user
