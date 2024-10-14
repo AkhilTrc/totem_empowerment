@@ -108,7 +108,7 @@ class LinkPredictionModel():
         train_predictions = model.predict(X_train)
         test_predictions = model.predict(X_test)
         visualization.plot_confusion_matrix((y_train, y_test), (train_predictions, test_predictions), p=0.5)
-        visualization.plot_roc((y_train, y_test), (train_predictions, test_predictions))
+        # visualization.plot_roc((y_train, y_test), (train_predictions, test_predictions))
 
         # check generalization on test data
         test_metrics = model.evaluate(X_test, y_test, verbose=0, return_dict=True)

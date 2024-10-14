@@ -78,7 +78,12 @@ def append_gametreetable_file(*data, time=None, prediction_model=0, first_line=F
     """
     # write first line
     if first_line is False:
-        data_new = np.concatenate((data[0], data[1], data[2]), axis=1)
+        if len(data) == 1:
+            data_new = np.concatenate((data[0]), axis=1)
+        elif len(data) == 2:
+            data_new = np.concatenate((data[0], data[1]), axis=1)
+        elif len(data) == 3:
+            data_new = np.concatenate((data[0], data[1], data[2]), axis=1)
     else:
         data_new = data
 
