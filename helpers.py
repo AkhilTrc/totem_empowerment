@@ -68,9 +68,9 @@ def split_numbers(n_elements, split):
     random.shuffle(x)   # List of randomly shuffled index values. 
 
     return np.array_split(x, split)
-
+"""
 def softmax(x, temperature=1):
-    """Applies softmax on a given list considering a temperature value. Softmax is applied row-wise if list is 2D.
+    Applies softmax on a given list considering a temperature value. Softmax is applied row-wise if list is 2D.
 
     Args:
         x (ndarray(dtype=float, ndim=2) or dict_values): Array with values. Can be 1D or 2D.
@@ -80,7 +80,7 @@ def softmax(x, temperature=1):
 
     Returns:
         ndarray(dtype=float, ndim=2): Probabilities row-wise.
-    """
+    
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
 
@@ -99,7 +99,8 @@ def softmax(x, temperature=1):
                 probabilities = scipy.special.softmax(x_temperature)
 
             return probabilities
-    
+"""
+
 def adjust_lightness(color, amount=0.5):
     """Function to lighten or darken given color by multiplying (1-luminosity) by the given amount.
                 Taken from https://stackoverflow.com/questions/37765197/darken-or-lighten-a-color-in-matplotlib
