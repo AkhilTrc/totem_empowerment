@@ -197,4 +197,7 @@ class Visualization():
         plt.close()
 
         # return info on test ranks
-        return {'Mean': np.mean(ranks[1]), 'Std': np.std(ranks[1]), 'ProbTrueResult': ranks[1].count(1)/len(ranks[1])}
+        if len(ranks[1]) != 0: 
+            return {'Mean': np.mean(ranks[1]), 'Std': np.std(ranks[1]), 'ProbTrueResult': ranks[1].count(1)/len(ranks[1])}
+        else:
+            return {'Mean': np.mean(ranks[1]), 'Std': np.std(ranks[1]), 'ProbTrueResult': np.nan}

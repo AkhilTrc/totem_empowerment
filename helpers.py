@@ -21,22 +21,22 @@ def softmax(values, temperature=1):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         
-        if not isinstance(x, np.ndarray):
-            x = list(x)
-            x = np.array(x)
+        if not isinstance(values, np.ndarray):
+            values = list(values)
+            values = np.array(values)
         
-        if x.ndim == 2:
-            x = preprocessing.scale(x, axis=1)
-            x_temperature = x/temperature
-            probabilities = scipy.special.softmax(x_temperature, axis=1)
-        if x.ndim == 3:
-            x = preprocessing.scale(x, axis=2)
-            x_temperature = x/temperature
-            probabilities = scipy.special.softmax(x_temperature, axis=2)
+        if values.ndim == 2:
+            values = preprocessing.scale(values, axis=1)
+            values_temperature = values/temperature
+            probabilities = scipy.special.softmax(values_temperature, axis=1)
+        if values.ndim == 3:
+            values = preprocessing.scale(values, axis=2)
+            values_temperature = values/temperature
+            probabilities = scipy.special.softmax(values_temperature, axis=2)
         else:
-            x = preprocessing.scale(x)
-            x_temperature = x/temperature
-            probabilities = scipy.special.softmax(x_temperature)
+            values = preprocessing.scale(values)
+            values_temperature = values/temperature
+            probabilities = scipy.special.softmax(values_temperature)
 
         return probabilities
     
