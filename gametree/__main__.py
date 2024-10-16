@@ -16,6 +16,7 @@ if __name__ == '__main__':
 
     #set version to element (using the main empowerment calculation afterwards) or empowerment (directly training on the empowerment values)
     model_version = 'element'
+    # model_version = 'empowerment'
 
     # set number of cross validation splits
     k = 10
@@ -35,8 +36,9 @@ if __name__ == '__main__':
         raise ValueError('Undefined version: "{}". Use "data" or "element" instead.'.format(split_version))
 
     # create directory to log info from this run
-    time = time.strftime('%Y%m%d-%H%M')
-    log.create_directory('gametree/data/{}/'.format(time))   # Just creates directory with the timestamp as name.  
+    # time = time.strftime('%Y%m%d-%H%M')
+    time = '20241015-0853'
+    # log.create_directory('gametree/data/{}/'.format(time))   # Just creates directory with the timestamp as name.  
 
     #prediction_model: 0-link prediction, 1-element prediction, 2-empowerment prediction
     # plot info for user
